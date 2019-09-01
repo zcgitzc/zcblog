@@ -1,12 +1,12 @@
 # Site settings
-title: Zark Bolg
-SEOTitle: 你的博客 | Zark Bolg
+title: Your Blog
+SEOTitle: 你的博客 | Your Blog
 header-img: img/home-bg.jpg
 email: caojiele1225@126.com
 description: ""
 keyword: ""
 url: "https://caojiele.com"              # your host, for absolute URL
-baseurl: "/zcblog"         # for example, '/blog' if Zark Bolg hosted on 'host/blog'
+baseurl: "/zcblog"         # for example, '/blog' if Your Blog hosted on 'host/blog'
 
 
 
