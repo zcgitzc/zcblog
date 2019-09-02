@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计以及架构 | 曹杰乐，Java & Mobile Lover，Software Engineer | 这里是 @caojiele 曹杰乐 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="曹杰乐, Jiele曹杰乐, Jiele, Jack-cao, @caojiele, 曹杰乐的博客, Jlcao Blog, 博客, 个人网站, 互联网, Java, node.js, 后端, 开发">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="百日维“薪” - 曹杰乐的博客 | Jlcao Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="
+  本文来自于我的知乎：上海温尔信息科技有限公司—百日维“薪”，转载请保留链接 ;)
+
+">
+    
+    <meta property="article:published_time" content="2018-10-01T00:00:00Z">
+    
+    
+    <meta property="article:author" content="caojiele">
+    
+    
+    <meta property="article:tag" content="欠薪">
+    
+    <meta property="article:tag" content="仲裁">
+    
+    <meta property="article:tag" content="互联网寒冬">
+    
+    
+    <meta property="og:image" content="http://localhost:4000https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg">
+    <meta property="og:url" content="http://localhost:4000/2018/10/01/failure-to-pay-wages/">
+    <meta property="og:site_name" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <title>百日维“薪” - 曹杰乐的博客 | Jlcao Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/zcblog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/zcblog/img/root/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/zcblog/2018/10/01/failure-to-pay-wages/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/zcblog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/zcblog/css/hux-blog.min.css">
+    
+    <!-- Return to the top CSS -->
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            <a href="javascript:history.back()" style="font-size:28px" class="fa fa-angle-left navbar-brand"></a>
+            
+            
+            <a class="navbar-brand" href="/zcblog/">Jlcao Blog</a>
+            
+             <a href="javascript:void(0)" class="fa fa-search navbar-brand search-icon" id="search-ic"></a>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/zcblog/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/cooperation/">Cooperation</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>    
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+    
+<!-- Search Box -->
+<div class="search-box hidden">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" autocomplete="off" id="search-input" class="search" placeholder="Search..." maxlength="20" onkeypress="return onKeyPress(event)">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search">
+      </ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/zcblog/img/in-post/2018.10/01/post-wener.png" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/zcblog/img/in-post/2018.10/01/post-wener.png');
+        background: ;
+    }
+
+    
+</style>
+
+<header class="intro-header" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E6%AC%A0%E8%96%AA" title="欠薪">欠薪</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E4%BB%B2%E8%A3%81" title="仲裁">仲裁</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E4%BA%92%E8%81%94%E7%BD%91%E5%AF%92%E5%86%AC" title="互联网寒冬">互联网寒冬</a>
+                        
+                    </div>
+                    <h1>百日维“薪”</h1>
+                    
+                    <h2 class="subheading">上海温尔信息科技有限公司的讨薪之路</h2>
+                    <span class="meta">Posted by caojiele on October 1, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- 添加评论系统 -->
+<link rel="stylesheet" href="../../../../css/gitalk.css">
+<script src="../../../../js/gitalk.min.js"></script>
+
+<!-- 添加打赏 -->
+<link href="/css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<blockquote>
+  <p>本文来自于我的知乎：<a href="https://zhuanlan.zhihu.com/p/61230092">上海温尔信息科技有限公司—百日维“薪”</a>，转载请保留链接 ;)</p>
+</blockquote>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-8fb664624f4769ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="温尔法人-康宏" /></p>
+
+<blockquote>
+  <p>你的脸上云淡风轻，谁也不知道你的牙咬得有多紧。你走路带着风，谁也不知道你膝盖上仍有曾摔伤的淤青。你笑得没心没肺，没人知道你哭起来只能无声落泪。要让人觉得毫不费力，只能背后极其努力。我们没有改变不了的未来，只有不想改变的过去。</p>
+</blockquote>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-4e07d7e69d2a7e9f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="仲裁" /></p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-d56d425a5cab837b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="虹口劳动仲裁委员会作息时间" /></p>
+
+<blockquote>
+  <p>以下 <strong>上海温尔信息科技有限公司</strong> 简称 “<strong>温尔</strong>”</p>
+</blockquote>
+
+<p>2018年的互联网寒冬持续时间是如此之久，裁员欠薪的事情是屡见不鲜。此事从何说起呢？对，从2018年10月国庆休完假回来说起。10月之前还是会发工资的，本来是每个月10号发工资，但是每次都会拖着几天，甚至是一周后来发工资，所以资金流转一直有着不小的问题。这公司整体应该算小型公司，最鼎盛的时候也是两三百人的样子，在徐家汇一家写字楼包下了一层，但是老板并不会打理公司，自然问题是各种出现。这些就不说了，应为那个时候我还没进来，也是听之前公司员工有说过。好吧，接下来说下我亲身经历的事情，<strong>如果有任何描述内容不符合实际的，可以当面指出。</strong></p>
+
+<p>国庆回来后，工资就断片了，公司想出各种借口说银行账户有问题，有的说因为少缴了税，被封了，也有的说被股东起诉让法院封了，这就让发钱的卡不能出钱，只能进钱。公司说最多会下个月会发，我们就盼星星盼月亮的等着，这一等就是三个月过去了，到了18年年底。（你们可以脑补一波，这段缺兵短粮的日子是怎么熬过来的）到了12月29日的样子，我一个同事被叫进去谈话，说是要他降薪调岗，然后过年早点回去休息一阵（息工）。那东北哥们肯定就不干了，自然就让管事的碰上了钉子，后面找我谈的时候，直接就跟我说裁员，也愿意赔偿一个月的赔偿金，但是要分期半年偿还，可以打借条。也许正常的人听了，就会马上办理离职交接手续，每个月按时收钱。你如果是这样想，那就大错特错了。那么可能有的人会说：“一定是有前科，没信誉吧!老套路经常玩吧” 对，说得没错，在职期间，我是看着一波又一波的老员工过来讨薪，最终都是失望而归，典型的事例就有一个原来康宏的战友，在职期间担任总经理助理，来了几趟了，都没有要到钱，现在在这公司信息公示网上都能查到这哥们上法院起诉信息。</p>
+
+<p>说到我们，这种离职赔偿方案，当然是不能接受的。在此期间，要我们签署各种离职协议什么的，不签就没有离职证明。协议里面各种条条框框（后附协议书），总的来说签了就说明你和公司没有任何劳动纠纷了，默认这种偿还方式，差点就着了公司的道。在商量无果的情况下，我们在12月31日就去了虹口劳动仲裁委员会，可惜的是，当时是星期四，不能受理案件，只能咨询。我们将这种情况跟仲裁员们聊了起来，因为那个时候我们什么都没签，只是公司口头说裁我们，所以仲裁这边要我们寄个挂号信给公司，大致的信息就是<strong>本人与该公司的劳动协议解除，已无任何劳动关系</strong>。元旦过后，我们就马上将材料提交给仲裁委员会这边，因为大家有的忙着找工作，有的忙着回家了（可怜呀，回家过年一分钱都没有）。我也早早回家了，毕竟越靠近年关，票越难买，而且车上人还很多，准备来年找工作。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-c5617c543a70834d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解除劳动合同协议书" /></p>
+
+<p>也许去年是本命年吧，这个开庭的日子竟然是过年的前几天（小编也是霉到家了），跟仲裁那边商量年后时间开庭也不批准，没办法，只能灰溜溜的坐个硬座连夜赶回上海参加开庭。我本来以为人都有脸，公司碰到这事一般都不会来，看来我想错了，这些人压根就没有脸，还能与我们对簿公堂~ 这里省去开庭的内容描述，因为说的都是上海话，我也听不懂，这公司就是故意的，还好我们有一个本地的律师。其实商量的内容都差不多，唯一有歧义的就是12月份竟然没有绩效工资，说什么开会签字通过了，哈哈哈~我们那个部门没有一个人知道。开庭书记私下就跟我说都各退一步，如果协商下来，能调解就调解，不能调解只能下判决书了。我们也是想尽快解决这个事情，所以也没纠缠，爽快的答应了（12月份绩效就当送给狗了），所以最后我们是调解的，没有开庭，答应在<strong>2月份内还清</strong>。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-5787d641a80edde0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开庭通知" /></p>
+
+<p>如果这里没有写了，是不是觉得公司在2月份会把钱打给我们。当然，没有这么简单，这也证明之前没有签分期协议是个明智的决定，果然2月份也没能如约履行支付拖欠的工资和赔偿金（这公司法人和管事的都是一群老赖，尤其那个<strong>李莲海</strong>）。没办法了，老实人被欺负到这份上，只能走最后一步，去虹口法院申请强制执行了，我们是3月1日就去执行的，一周之内法院那边就打电话了，说公司账户里面没有钱，我们之前提供的建行账户（也就是之前一直发工资被封掉的银行卡）根本就没查到，法院说可能这张卡是个人开的卡（我不清楚现在中国开公司的条件是什么，但是我觉得像这样的公司就赶紧不要来祸害人间了，趁早关门），所以这公司从成立的时候就想好了。法院这边说最多等6个月，已经将公司法人（就是第一张图上的人 康宏）上了限高令（限制高消费），后面结案能上黑名单，钱补上就会打过来，要我们等消息。所以前前后后，不带从10月份欠薪开始，我们已经走维权这条路已经有3个月，在4月的初始，也是此事经历过百日后，才提笔述说讨薪的经过。中国的劳动者维权之路到底在何方？依然是个未知数？还是有机会去大厂吧！钱多钱少无所谓，求个安稳，能发工资就行。</p>
+
+<p>这里借诸葛亮的出师表一句话结尾：”临表涕零，不知所言！“ 希望有付出就有收获，能拿回自己的血汗钱！也希望同行们找工作放大眼睛找，千万别入坑，只要一有不发工资的迹象，就赶紧走。</p>
+
+<hr />
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-4982fea4fc033d67.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="法院退代管款截图" /></p>
+
+<p>话说在3月1日向法院申请强制执行后，我们本来是不抱希望的，想这老头（康宏）应该不会对自己上限高令和黑名单有太在意，没想到转折点在4月中旬。法院那边打电话，说他已经交了3万多，后续钱的会补上，我们欣喜若狂，仿佛拨云见日。没过几天就接到电话，要我们去签字结案，4月底的时候和我一起仲裁的另一个哥们就拿到了钱，为啥我没拿到？法院那边解释是他把钱都交到了那哥们的案子上，所以我的要等一会。这一会就是一个月哈（法院办事效率我不想说了，还要我们送锦旗，脸在哪？）到了5月17日我终于拿到了钱。从元旦开始仲裁到5月中旬拿到钱，将近花费半年时间的破事终于结束了。也算是给自己在那段时间坚持维权这条路的交代吧！最后借鲁迅先生一句话，送给大家：“真的猛士，敢于直面惨淡的人生，敢于正视淋漓的鲜血。” 既然选择了要当猛士，就坚持当下去，即使一路走到黑，都不要后悔！Just do it! 💪💪💪</p>
+
+
+                <hr style="visibility: hidden;">
+            
+     <!-- 打赏功能 -->
+            <div>
+                <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                <div>☛小礼物走一走，来Github关注我☚</div>
+                <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                    <span>打 赏</span>
+                </button>
+                <div id="QR" style="display: none;">
+                     
+                <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="/img/payimg/weipayimg.jpg" alt="caojiele 微信支付"/>
+                <p>微信支付</p>
+                </div>
+                <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="/img/payimg/alipayimg.jpg" alt="caojiele 支付宝"/>
+                <p>支付宝</p>
+                </div>                        
+             </div>
+         </div>         
+     </div>
+		    
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/zcblog/2018/09/21/alibaba-nacos-discovery1/" data-toggle="tooltip" data-placement="top" title="初识 Nacos(上）">
+                        Previous<br>
+                        <span>初识 Nacos(上）</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/zcblog/2018/12/07/make-your-resume/" data-toggle="tooltip" data-placement="top" title="在Github Pages上部署简历">
+                        Next<br>
+                        <span>在Github Pages上部署简历</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+<!--                  -->
+
+<!--                  -->
+		
+		<!--   gitalk       -->
+                
+                <div class="comment">
+                    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2018-10-01 00:00:00 +0800',
+    clientID: '71d864566f502c0a73ba',
+    clientSecret: '0275406b08f33cc8118d02eb9332cfb707f13bf0',
+    repo: 'caojiele.github.io',
+    owner: 'caojiele',
+    admin: ['caojiele'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+
+                </div>
+                
+             </div>  
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/zcblog/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                    title="数据库"
+                    rel="2">数据库</a>
+        
+                <a data-sort="0015" 
+                    href="/zcblog/archive/?tag=Java"
+                    title="Java"
+                    rel="11">Java</a>
+        
+                <a data-sort="0021" 
+                    href="/zcblog/archive/?tag=%E6%85%95%E8%AF%BE%E7%BD%91%E6%89%8B%E8%AE%B0"
+                    title="慕课网手记"
+                    rel="5">慕课网手记</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95"
+                    title="面试"
+                    rel="3">面试</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=Dubbo"
+                    title="Dubbo"
+                    rel="3">Dubbo</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=RPC"
+                    title="RPC"
+                    rel="3">RPC</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%88%86%E5%B8%83%E5%BC%8F"
+                    title="分布式"
+                    rel="2">分布式</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1"
+                    title="微服务"
+                    rel="2">微服务</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="2">生活</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Nacos"
+                    title="Nacos"
+                    rel="2">Nacos</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring"
+                    title="Spring"
+                    rel="2">Spring</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring+Cloud"
+                    title="Spring Cloud"
+                    rel="2">Spring Cloud
+    </div>
+</section>
+
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://huangxuan.me/">黄玄的博客</a></li>
+  
+  <li><a href="http://www.xuxueli.com/blog/#/">许雪里的博客</a></li>
+  
+  <li><a href="https://mercyblitz.github.io/">小马哥的技术博客</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="https://yizibi.github.io">一之笔的博客</a></li>
+  
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+<!--  -->
+
+
+ -->
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                本站总访问量:<span id="busuanzi_value_site_pv"></span>，本站访客数:<span id="busuanzi_value_site_uv"></span>，本文总阅读量:<span id="busuanzi_value_page_pv"></span>
+                
+			
+                    <br>
+		    <img src="/img/root/logo-record.png" style="margin-left"/>
+			Copyright &copy; Jlcao Blog 2019  
+                    <br>
+			
+		    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43021102000161" 
+		    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			    湘公网安备 43021102000161号</a> |
+		    
+                    Powered by <a href="https://caojiele.com">Jlcao Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+		  </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- jQuery -->
+<script src="/zcblog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/zcblog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/zcblog/js/hux-blog.min.js "></script>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/zcblog/js/snackbar.js "></script>
+<script src="/zcblog/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-120526213-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Search -->
+ <script>
+     function onKeyPress(e) {
+         var keyCode = null;
+         if(e.which)
+             keyCode = e.which;
+         else if(e.keyCode)
+             keyCode = e.keyCode;
+         if(keyCode == 13) {
+             location.href="/search/?q=" + document.getElementById('search-input').value;
+             return false;
+         }
+         return true;
+     }
+     var url_string = window.location.href;
+    if (url_string.indexOf('search/?q') > 0){
+        document.getElementById('search-ic').classList.toggle('hidden');
+        var url = new URL(url_string);
+        var question = url.searchParams.get("q");
+        let title = document.getElementById('search-qs');
+        title.innerHTML = '"' + question + '"';
+        SimpleJekyllSearch({
+            searchtext: question,
+            resultsContainer: document.getElementById('results-container-list'),
+            json: '/search.json',
+            searchResultTemplate: '<li>\n' +
+                '                <div class="cbp_tmlabel result">\n' +
+                '                    <a href="{url}">\n' +
+                '                        <h2 id="boxoffice">{title}</h2>\n' +
+                '                        <ul>\n' +
+                '                            <li>\n' +
+                '                                {desc}' +
+                '                            </li>\n' +
+                '                        </ul>\n' +
+                '                        <br>\n' +
+                '                    </a>\n' +
+                '                </div>\n' +
+                '            </li>',
+            noResultsText: '',
+            fuzzy: false,
+            limit: 10000
+        });
+    } else {
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
+            noResultsText: '',
+            fuzzy: false
+        });
+    }
+ </script>
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Back to the top -->
+<a id="rocket" href="#top" class=""></a>
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/root/icon_wechat.png" width="0" height="0" />     
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

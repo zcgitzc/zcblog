@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计以及架构 | 曹杰乐，Java & Mobile Lover，Software Engineer | 这里是 @caojiele 曹杰乐 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="曹杰乐, Jiele曹杰乐, Jiele, Jack-cao, @caojiele, 曹杰乐的博客, Jlcao Blog, 博客, 个人网站, 互联网, Java, node.js, 后端, 开发">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dubbo2.7 三大新特性详解 - 曹杰乐的博客 | Jlcao Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="
+  本文来自于Dubbo官网，作者为@lexburner：Dubbo2.7 三大新特性详解，转载请保留链接 ;)
+
+">
+    
+    <meta property="article:published_time" content="2019-03-22T00:00:00Z">
+    
+    
+    <meta property="article:author" content="lexburner">
+    
+    
+    <meta property="article:tag" content="Dubbo">
+    
+    <meta property="article:tag" content="RPC">
+    
+    <meta property="article:tag" content="微服务">
+    
+    
+    <meta property="og:image" content="http://localhost:4000https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg">
+    <meta property="og:url" content="http://localhost:4000/2019/03/22/dubbo-27-features/">
+    <meta property="og:site_name" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <title>Dubbo2.7 三大新特性详解 - 曹杰乐的博客 | Jlcao Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/zcblog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/zcblog/img/root/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/zcblog/2019/03/22/dubbo-27-features/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/zcblog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/zcblog/css/hux-blog.min.css">
+    
+    <!-- Return to the top CSS -->
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            <a href="javascript:history.back()" style="font-size:28px" class="fa fa-angle-left navbar-brand"></a>
+            
+            
+            <a class="navbar-brand" href="/zcblog/">Jlcao Blog</a>
+            
+             <a href="javascript:void(0)" class="fa fa-search navbar-brand search-icon" id="search-ic"></a>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/zcblog/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/cooperation/">Cooperation</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>    
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+    
+<!-- Search Box -->
+<div class="search-box hidden">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" autocomplete="off" id="search-input" class="search" placeholder="Search..." maxlength="20" onkeypress="return onKeyPress(event)">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search">
+      </ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/zcblog/img/in-post/2019.03/22/post-dubbo-2.7.png" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/zcblog/img/in-post/2019.03/22/post-dubbo-2.7.png');
+        background: ;
+    }
+
+    
+</style>
+
+<header class="intro-header" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=Dubbo" title="Dubbo">Dubbo</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=RPC" title="RPC">RPC</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1" title="微服务">微服务</a>
+                        
+                    </div>
+                    <h1>Dubbo2.7 三大新特性详解</h1>
+                    
+                    <h2 class="subheading">异步化改造,三大中心改造,服务治理增强</h2>
+                    <span class="meta">Posted by lexburner on March 22, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- 添加评论系统 -->
+<link rel="stylesheet" href="../../../../css/gitalk.css">
+<script src="../../../../js/gitalk.min.js"></script>
+
+<!-- 添加打赏 -->
+<link href="/css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<blockquote>
+  <p>本文来自于Dubbo官网，作者为@lexburner：<a href="http://dubbo.apache.org/zh-cn/blog/dubbo-27-features.html">Dubbo2.7 三大新特性详解</a>，转载请保留链接 ;)</p>
+</blockquote>
+
+<!-- MarkdownTOC -->
+
+<ul>
+  <li><a href="#1-背景介绍">1. 背景介绍</a></li>
+  <li><a href="#2-分支介绍">2. 分支介绍</a></li>
+  <li><a href="#3-Dubbo-27-新特性">3. Dubbo 2.7 新特性</a></li>
+  <li><a href="#4-异步化改造">4. 异步化改造</a>
+    <ul>
+      <li><a href="#41-几种调用方式">4.1 几种调用方式</a></li>
+      <li><a href="#42-Dubbo-26-异步化">4.2 Dubbo 2.6 异步化</a></li>
+      <li><a href="#43-Dubbo-27-异步化">4.3 Dubbo 2.7 异步化</a></li>
+      <li><a href="#44-异步化设计-FAQ">4.4 异步化设计 FAQ</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-三大中心改造">5. 三大中心改造</a>
+    <ul>
+      <li><a href="#51-元数据改造">5.1 元数据改造</a></li>
+      <li><a href="#52-Dubbo-26-元数据">5.2 Dubbo 2.6 元数据</a></li>
+      <li><a href="#53-Dubbo-27-元数据">5.3 Dubbo 2.7 元数据</a></li>
+      <li><a href="#54-配置中心支持">5.4 配置中心支持</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-服务治理增强">6. 服务治理增强</a></li>
+  <li><a href="#7-总结">7. 总结</a></li>
+</ul>
+
+<h2 id="1-背景介绍">1 背景介绍</h2>
+
+<p>自 2017 年 7 月阿里重启 Dubbo 开源，到目前为止 github star 数，contributor 数都有了非常大的提升。2018 年 2 月 9 日阿里决定将 Dubbo 项目贡献给 Apache，经过一周的投票，顺利成为了 Apache 的孵化项目，也就是大家现在看到的 <strong>Incubator Dubbo</strong>。预计在 2019 年 4 月，Dubbo 可以达成毕业，成为 Apache 的顶级项目。</p>
+
+<h2 id="2-分支介绍">2 分支介绍</h2>
+
+<p><img src="http://kirito.iocoder.cn/image-20190321153455566.png" alt="分支" /></p>
+
+<p>Dubbo 目前有如图所示的 5 个分支，其中 2.7.1-release 只是一个临时分支，忽略不计，对其他 4 个分支进行介绍。</p>
+
+<ul>
+  <li>2.5.x 近期已经通过投票，Dubbo 社区即将停止对其的维护。</li>
+  <li>2.6.x 为长期支持的版本，也是 Dubbo 贡献给 Apache 之前的版本，其包名前缀为：com.alibaba，JDK 版本对应 1.6。</li>
+  <li>3.x-dev 是前瞻性的版本，对 Dubbo 进行一些高级特性的补充，如支持 rx 特性。</li>
+  <li>master 为长期支持的版本，版本号为 2.7.x，也是 Dubbo 贡献给 Apache 的开发版本，其包名前缀为：org.apache，JDK 版本对应 1.8。</li>
+</ul>
+
+<blockquote>
+  <p>如果想要研究 Dubbo 的源码，建议直接浏览 master 分支。</p>
+</blockquote>
+
+<h2 id="3-dubbo-27-新特性">3 Dubbo 2.7 新特性</h2>
+
+<p>Dubbo 2.7.x 作为 Apache 的孵化版本，除了代码优化之外，还新增了许多重磅的新特性，本文将会介绍其中最典型的三个新特性：</p>
+
+<ul>
+  <li>异步化改造</li>
+  <li>三大中心改造</li>
+  <li>服务治理增强</li>
+</ul>
+
+<h2 id="4-异步化改造">4 异步化改造</h2>
+
+<h3 id="41-几种调用方式">4.1 几种调用方式</h3>
+
+<p><img src="http://kirito.iocoder.cn/image-20190321160844133.png" alt="调用方式" /></p>
+
+<p>在远程方法调用中，大致可以分为这 4 种调用方式。oneway 指的是客户端发送消息后，不需要接受响应。对于那些不关心服务端响应的请求，比较适合使用 oneway 通信。</p>
+
+<blockquote>
+  <p>注意，void hello() 方法在远程方法调用中，不属于 oneway 调用，虽然 void 方法表达了不关心返回值的语义，但在 RPC 层面，仍然需要做通信层的响应。</p>
+</blockquote>
+
+<p>sync 是最常用的通信方式，也是默认的通信方法。</p>
+
+<p>future 和 callback 都属于异步调用的范畴，他们的区别是：在接收响应时，future.get() 会导致线程的阻塞;callback 通常会设置一个回调线程，当接收到响应时，自动执行，不会对当前线程造成阻塞。</p>
+
+<h3 id="42-dubbo-26-异步化">4.2 Dubbo 2.6 异步化</h3>
+
+<p>异步化的优势在于客户端不需要启动多线程即可完成并行调用多个远程服务，相对多线程开销较小。介绍 2.7 中的异步化改造之前，先回顾一下如何在 2.6 中使用 Dubbo 异步化的能力。</p>
+
+<ol>
+  <li>将同步接口声明成 <code class="highlighter-rouge">async=true</code>
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> <span class="nt">&lt;dubbo:reference</span> <span class="na">id=</span><span class="s">"asyncService"</span> <span class="na">interface=</span><span class="s">"org.apache.dubbo.demo.api.AsyncService"</span> <span class="na">async=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre> <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AsyncService</span> <span class="o">{</span>
+     <span class="nc">String</span> <span class="nf">sayHello</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">);</span>
+ <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>通过上下文类获取 future
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre> <span class="nc">AsyncService</span><span class="o">.</span><span class="na">sayHello</span><span class="o">(</span><span class="s">"Han Meimei"</span><span class="o">);</span>
+ <span class="nc">Future</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">fooFuture</span> <span class="o">=</span> <span class="nc">RpcContext</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getFuture</span><span class="o">();</span>
+ <span class="n">fooFuture</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>可以看出，这样的使用方式，不太符合异步编程的习惯，竟然需要从一个上下文类中获取到 Future。如果同时进行多个异步调用，使用不当很容易造成上下文污染。而且，Future 并不支持 callback 的调用方式。这些弊端在 Dubbo 2.7 中得到了改进。</p>
+
+<h3 id="43-dubbo-27-异步化">4.3 Dubbo 2.7 异步化</h3>
+
+<ol>
+  <li>无需配置中特殊声明，显式声明异步接口即可
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre> <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AsyncService</span> <span class="o">{</span>
+     <span class="nc">String</span> <span class="nf">sayHello</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">);</span>
+     <span class="k">default</span> <span class="nc">CompletableFuture</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">sayHiAsync</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+         <span class="k">return</span> <span class="nc">CompletableFuture</span><span class="o">.</span><span class="na">completedFuture</span><span class="o">(</span><span class="n">sayHello</span><span class="o">(</span><span class="n">name</span><span class="o">));</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>使用 callback 方式处理返回值
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre> <span class="nc">CompletableFuture</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">asyncService</span><span class="o">.</span><span class="na">sayHiAsync</span><span class="o">(</span><span class="s">"Han MeiMei"</span><span class="o">);</span>
+ <span class="n">future</span><span class="o">.</span><span class="na">whenComplete</span><span class="o">((</span><span class="n">retValue</span><span class="o">,</span> <span class="n">exception</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+     <span class="k">if</span> <span class="o">(</span><span class="n">exception</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">retValue</span><span class="o">);</span>
+     <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+         <span class="n">exception</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+     <span class="o">}</span>
+ <span class="o">});</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Dubbo 2.7 中使用了 JDK1.8 提供的 <code class="highlighter-rouge">CompletableFuture</code> 原生接口对自身的异步化做了改进。<code class="highlighter-rouge">CompletableFuture</code> 可以支持 future 和 callback 两种调用方式，用户可以根据自己的喜好和场景选择使用，非常灵活。</p>
+
+<h3 id="44-异步化设计-faq">4.4 异步化设计 FAQ</h3>
+
+<p>Q：如果 RPC 接口只定义了同步接口，有办法使用异步调用吗？</p>
+
+<p>A：2.6 中的异步调用唯一的优势在于，不需要在接口层面做改造，又可以进行异步调用，这种方式仍然在 2.7 中保留；使用 Dubbo 官方提供的 compiler hacker，编译期自动重写同步方法，请<a href="https://github.com/dubbo/dubbo-async-processor#compiler-hacker-processer">在此</a>讨论和跟进具体进展。</p>
+
+<hr />
+
+<p>Q：关于异步接口的设计问题，为何不提供编译插件，根据原接口，自动编译出一个 XxxAsync 接口？</p>
+
+<p>A：Dubbo 2.7 采用过这种设计，但接口的膨胀会导致服务类的增量发布，而且接口名的变化会影响服务治理的一些相关逻辑，改为方法添加 Async 后缀相对影响范围较小。</p>
+
+<hr />
+
+<p>Q：Dubbo 分为了客户端异步和服务端异步，刚刚你介绍的是客户端异步，为什么不提服务端异步呢？</p>
+
+<p>A：Dubbo 2.7 新增了服务端异步的支持，但实际上，Dubbo 的业务线程池模型，本身就可以理解为异步调用，个人认为服务端异步的特性较为鸡肋。</p>
+
+<h2 id="5-三大中心改造">5 三大中心改造</h2>
+
+<p>三大中心指的：注册中心，元数据中心，配置中心。</p>
+
+<p>在 2.7 之前的版本，Dubbo 只配备了注册中心，主流使用的注册中心为 zookeeper。新增加了元数据中心和配置中心，自然是为了解决对应的痛点，下面我们来详细阐释三大中心改造的原因。</p>
+
+<h3 id="51-元数据改造">5.1 元数据改造</h3>
+
+<p>元数据是什么？元数据定义为描述数据的数据，在服务治理中，例如服务接口名，重试次数，版本号等等都可以理解为元数据。在 2.7 之前，元数据一股脑丢在了注册中心之中，这造成了一系列的问题：</p>
+
+<p><strong>推送量大 -&gt; 存储数据量大 -&gt; 网络传输量大 -&gt; 延迟严重</strong></p>
+
+<p>生产者端注册 30+ 参数，有接近一半是不需要作为注册中心进行传递；消费者端注册 25+ 参数，只有个别需要传递给注册中心。有了以上的理论分析，Dubbo 2.7 进行了大刀阔斧的改动，只将真正属于服务治理的数据发布到注册中心之中，大大降低了注册中心的负荷。</p>
+
+<p>同时，将全量的元数据发布到另外的组件中：元数据中心。元数据中心目前支持 redis（推荐），zookeeper。这也为 Dubbo 2.7 全新的 Dubbo Admin 做了准备，关于新版的 Dubbo Admin，我将会后续准备一篇独立的文章进行介绍。</p>
+
+<p>示例：使用 zookeeper 作为元数据中心</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;dubbo:metadata-report</span> <span class="na">address=</span><span class="s">"zookeeper://127.0.0.1:2181"</span><span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="52-dubbo-26-元数据">5.2 Dubbo 2.6 元数据</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre>dubbo://30.5.120.185:20880/com.alibaba.dubbo.demo.DemoService?
+<span class="nv">anyhost</span><span class="o">=</span><span class="nb">true</span>&amp;
+<span class="nv">application</span><span class="o">=</span>demo-provider&amp;
+<span class="nv">interface</span><span class="o">=</span>com.alibaba.dubbo.demo.DemoService&amp;
+<span class="nv">methods</span><span class="o">=</span>sayHello&amp;
+bean.name<span class="o">=</span>com.alibaba.dubbo.demo.DemoService&amp;
+<span class="nv">dubbo</span><span class="o">=</span>2.0.2&amp;
+<span class="nv">executes</span><span class="o">=</span>4500&amp;
+<span class="nv">generic</span><span class="o">=</span><span class="nb">false</span>&amp;
+<span class="nv">owner</span><span class="o">=</span>kirito&amp;
+<span class="nv">pid</span><span class="o">=</span>84228&amp;
+<span class="nv">retries</span><span class="o">=</span>7&amp;
+<span class="nv">side</span><span class="o">=</span>provider&amp;
+<span class="nv">timestamp</span><span class="o">=</span>1552965771067
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>从本地的 zookeeper 中取出一条服务数据，通过解码之后，可以看出，的确有很多参数是不必要。</p>
+
+<h3 id="53-dubbo-27-元数据">5.3 Dubbo 2.7 元数据</h3>
+
+<p>在 2.7 中，如果不进行额外的配置，zookeeper 中的数据格式仍然会和 Dubbo 2.6 保持一致，这主要是为了保证兼容性，让 Dubbo 2.6 的客户端可以调用 Dubbo 2.7 的服务端。如果整体迁移到 2.7，则可以为注册中心开启简化配置的参数：</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;dubbo:registry</span> <span class="na">address=</span><span class="s">“zookeeper://127.0.0.1:2181”</span> <span class="na">simplified=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Dubbo 将会只上传那些必要的服务治理数据，一个简化过后的数据如下所示：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>dubbo://30.5.120.185:20880/org.apache.dubbo.demo.api.DemoService?
+<span class="nv">application</span><span class="o">=</span>demo-provider&amp;
+<span class="nv">dubbo</span><span class="o">=</span>2.0.2&amp;
+<span class="nv">release</span><span class="o">=</span>2.7.0&amp;
+<span class="nv">timestamp</span><span class="o">=</span>1552975501873
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>对于那些非必要的服务信息，仍然全量存储在元数据中心之中：</p>
+
+<p><img src="http://kirito.iocoder.cn/image-20190321175852034.png" alt="元数据" /></p>
+
+<blockquote>
+  <p>元数据中心的数据可以被用于服务测试，服务 MOCK 等功能。目前注册中心配置中 simplified 的默认值为 false，因为考虑到了迁移的兼容问题，在后续迭代中，默认值将会改为 true。</p>
+</blockquote>
+
+<h3 id="54-配置中心支持">5.4 配置中心支持</h3>
+
+<p>衡量配置中心的必要性往往从三个角度出发：</p>
+
+<ul>
+  <li>
+    <p>分布式配置统一管理</p>
+  </li>
+  <li>
+    <p>动态变更推送</p>
+  </li>
+  <li>
+    <p>安全性</p>
+  </li>
+</ul>
+
+<p>Spring Cloud Config, Apollo, Nacos 等分布式配置中心组件都对上述功能有不同程度的支持。在 2.7 之前的版本中，在 zookeeper 中设置了部分节点：configurators，routers，用于管理部分配置和路由信息，它们可以理解为 Dubbo 配置中心的雏形。在 2.7 中，Dubbo 正式支持了配置中心，目前支持的几种注册中心 Zookeeper，Apollo，Nacos（2.7.1-release 支持）。</p>
+
+<p>在 Dubbo 中，配置中心主要承担了两个作用</p>
+
+<ul>
+  <li>
+    <p>外部化配置。启动配置的集中式存储</p>
+  </li>
+  <li>
+    <p>服务治理。服务治理规则的存储与通知</p>
+  </li>
+</ul>
+
+<p>示例：使用 Zookeeper 作为配置中心</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;dubbo:config-center</span> <span class="na">address=</span><span class="s">"zookeeper://127.0.0.1:2181"</span><span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>引入配置中心后，需要注意配置项的覆盖问题，优先级如图所示</p>
+
+<p><img src="http://kirito.iocoder.cn/configuration.jpg" alt="配置覆盖优先级" /></p>
+
+<h2 id="6-服务治理增强">6 服务治理增强</h2>
+
+<p>我更倾向于将 Dubbo 当做一个服务治理框架，而不仅仅是一个 RPC 框架。在 2.7 中，Dubbo 对其服务治理能力进行了增强，增加了标签路由的能力，并抽象出了应用路由和服务路由的概念。在最后一个特性介绍中，着重对标签路由 TagRouter 进行探讨。</p>
+
+<blockquote>
+  <p>在服务治理中，路由层和负载均衡层的对比。区别 1，Router：m 选 n，LoadBalance：n 选 1；区别 2，路由往往是叠加使用的，负载均衡只能配置一种。</p>
+</blockquote>
+
+<p>在很长的一段时间内，Dubbo 社区经常有人提的一个问题是：Dubbo 如何实现流量隔离和灰度发布，直到 2.7 提供了标签路由，用户可以使用这个功能，来实现上述的需求。</p>
+
+<p><img src="http://kirito.iocoder.cn/image-20190321191620078.png" alt="标签路由" /></p>
+
+<p>标签路由提供了这样一个能力，当调用链路为 A -&gt; B -&gt; C -&gt; D 时，用户给请求打标，最典型的打标方式可以借助 attachment（他可以在分布式调用中传递下去），调用会优先请求那些匹配的服务端，如 A -&gt; B，C -&gt; D，由于集群中未部署 C 节点，则会降级到普通节点。</p>
+
+<p>打标方式会收到集成系统差异的影响，从而导致很大的差异，所以 Dubbo 只提供了 <code class="highlighter-rouge">RpcContext.getContext().setAttachment()</code> 这样的基础接口，用户可以使用 SPI 扩展，或者 server filter 的扩展，对测试流量进行打标，引导进入隔离环境/灰度环境。</p>
+
+<p>新版的 Dubbo Admin 提供了标签路由的配置项：</p>
+
+<p><img src="http://kirito.iocoder.cn/image-20190321192540774.png" alt="标签路由配置" /></p>
+
+<p>Dubbo 用户可以在自己系统的基础上对标签路由进行二次扩展，或者借鉴标签路由的设计，实现自己系统的流量隔离，灰度发布。</p>
+
+<h2 id="7-总结">7 总结</h2>
+
+<p>本文介绍了 Dubbo 2.7 比较重要的三大新特性：异步化改造，三大中心改造，服务治理增强。Dubbo 2.7 还包含了很多功能优化、特性升级，可以在项目源码的 <a href="https://github.com/apache/incubator-dubbo/blob/master/CHANGES.md">CHANGES.md</a> 中浏览全部的改动点。最后提供一份 Dubbo 2.7 的升级文档：<a href="http://dubbo.incubator.apache.org/zh-cn/docs/user/versions/version-270.html">2.7迁移文档</a>，欢迎体验。</p>
+
+
+                <hr style="visibility: hidden;">
+            
+     <!-- 打赏功能 -->
+            <div>
+                <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                <div>☛小礼物走一走，来Github关注我☚</div>
+                <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                    <span>打 赏</span>
+                </button>
+                <div id="QR" style="display: none;">
+                     
+                <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="/img/payimg/weipayimg.jpg" alt="caojiele 微信支付"/>
+                <p>微信支付</p>
+                </div>
+                <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="/img/payimg/alipayimg.jpg" alt="caojiele 支付宝"/>
+                <p>支付宝</p>
+                </div>                        
+             </div>
+         </div>         
+     </div>
+		    
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/zcblog/2019/03/18/nacos-1.0.0-preview-function/" data-toggle="tooltip" data-placement="top" title="Nacos 1.0.0 功能预览">
+                        Previous<br>
+                        <span>Nacos 1.0.0 功能预览</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/zcblog/2019/03/28/spring-ioc/" data-toggle="tooltip" data-placement="top" title="Spring IOC">
+                        Next<br>
+                        <span>Spring IOC</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+<!--                  -->
+
+<!--                  -->
+		
+		<!--   gitalk       -->
+                
+                <div class="comment">
+                    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-03-22 00:00:00 +0800',
+    clientID: '71d864566f502c0a73ba',
+    clientSecret: '0275406b08f33cc8118d02eb9332cfb707f13bf0',
+    repo: 'caojiele.github.io',
+    owner: 'caojiele',
+    admin: ['caojiele'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+
+                </div>
+                
+             </div>  
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/zcblog/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                    title="数据库"
+                    rel="2">数据库</a>
+        
+                <a data-sort="0015" 
+                    href="/zcblog/archive/?tag=Java"
+                    title="Java"
+                    rel="11">Java</a>
+        
+                <a data-sort="0021" 
+                    href="/zcblog/archive/?tag=%E6%85%95%E8%AF%BE%E7%BD%91%E6%89%8B%E8%AE%B0"
+                    title="慕课网手记"
+                    rel="5">慕课网手记</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95"
+                    title="面试"
+                    rel="3">面试</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=Dubbo"
+                    title="Dubbo"
+                    rel="3">Dubbo</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=RPC"
+                    title="RPC"
+                    rel="3">RPC</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%88%86%E5%B8%83%E5%BC%8F"
+                    title="分布式"
+                    rel="2">分布式</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1"
+                    title="微服务"
+                    rel="2">微服务</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="2">生活</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Nacos"
+                    title="Nacos"
+                    rel="2">Nacos</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring"
+                    title="Spring"
+                    rel="2">Spring</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring+Cloud"
+                    title="Spring Cloud"
+                    rel="2">Spring Cloud
+    </div>
+</section>
+
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://huangxuan.me/">黄玄的博客</a></li>
+  
+  <li><a href="http://www.xuxueli.com/blog/#/">许雪里的博客</a></li>
+  
+  <li><a href="https://mercyblitz.github.io/">小马哥的技术博客</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="https://yizibi.github.io">一之笔的博客</a></li>
+  
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+<!--  -->
+
+
+ -->
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                本站总访问量:<span id="busuanzi_value_site_pv"></span>，本站访客数:<span id="busuanzi_value_site_uv"></span>，本文总阅读量:<span id="busuanzi_value_page_pv"></span>
+                
+			
+                    <br>
+		    <img src="/img/root/logo-record.png" style="margin-left"/>
+			Copyright &copy; Jlcao Blog 2019  
+                    <br>
+			
+		    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43021102000161" 
+		    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			    湘公网安备 43021102000161号</a> |
+		    
+                    Powered by <a href="https://caojiele.com">Jlcao Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+		  </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- jQuery -->
+<script src="/zcblog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/zcblog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/zcblog/js/hux-blog.min.js "></script>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/zcblog/js/snackbar.js "></script>
+<script src="/zcblog/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-120526213-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Search -->
+ <script>
+     function onKeyPress(e) {
+         var keyCode = null;
+         if(e.which)
+             keyCode = e.which;
+         else if(e.keyCode)
+             keyCode = e.keyCode;
+         if(keyCode == 13) {
+             location.href="/search/?q=" + document.getElementById('search-input').value;
+             return false;
+         }
+         return true;
+     }
+     var url_string = window.location.href;
+    if (url_string.indexOf('search/?q') > 0){
+        document.getElementById('search-ic').classList.toggle('hidden');
+        var url = new URL(url_string);
+        var question = url.searchParams.get("q");
+        let title = document.getElementById('search-qs');
+        title.innerHTML = '"' + question + '"';
+        SimpleJekyllSearch({
+            searchtext: question,
+            resultsContainer: document.getElementById('results-container-list'),
+            json: '/search.json',
+            searchResultTemplate: '<li>\n' +
+                '                <div class="cbp_tmlabel result">\n' +
+                '                    <a href="{url}">\n' +
+                '                        <h2 id="boxoffice">{title}</h2>\n' +
+                '                        <ul>\n' +
+                '                            <li>\n' +
+                '                                {desc}' +
+                '                            </li>\n' +
+                '                        </ul>\n' +
+                '                        <br>\n' +
+                '                    </a>\n' +
+                '                </div>\n' +
+                '            </li>',
+            noResultsText: '',
+            fuzzy: false,
+            limit: 10000
+        });
+    } else {
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
+            noResultsText: '',
+            fuzzy: false
+        });
+    }
+ </script>
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Back to the top -->
+<a id="rocket" href="#top" class=""></a>
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/root/icon_wechat.png" width="0" height="0" />     
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

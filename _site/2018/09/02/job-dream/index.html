@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计以及架构 | 曹杰乐，Java & Mobile Lover，Software Engineer | 这里是 @caojiele 曹杰乐 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="曹杰乐, Jiele曹杰乐, Jiele, Jack-cao, @caojiele, 曹杰乐的博客, Jlcao Blog, 博客, 个人网站, 互联网, Java, node.js, 后端, 开发">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="一场工作，一场梦 - 曹杰乐的博客 | Jlcao Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="
+  版权声明：本文为微信公众号原创文章
+一场工作，一场梦。转载请保留链接 ;)
+
+">
+    
+    <meta property="article:published_time" content="2018-09-02T00:00:00Z">
+    
+    
+    <meta property="article:author" content="caojiele">
+    
+    
+    <meta property="article:tag" content="生活">
+    
+    <meta property="article:tag" content="面试">
+    
+    
+    <meta property="og:image" content="http://localhost:4000https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg">
+    <meta property="og:url" content="http://localhost:4000/2018/09/02/job-dream/">
+    <meta property="og:site_name" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <title>一场工作，一场梦 - 曹杰乐的博客 | Jlcao Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/zcblog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/zcblog/img/root/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/zcblog/2018/09/02/job-dream/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/zcblog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/zcblog/css/hux-blog.min.css">
+    
+    <!-- Return to the top CSS -->
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            <a href="javascript:history.back()" style="font-size:28px" class="fa fa-angle-left navbar-brand"></a>
+            
+            
+            <a class="navbar-brand" href="/zcblog/">Jlcao Blog</a>
+            
+             <a href="javascript:void(0)" class="fa fa-search navbar-brand search-icon" id="search-ic"></a>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/zcblog/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/cooperation/">Cooperation</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>    
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+    
+<!-- Search Box -->
+<div class="search-box hidden">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" autocomplete="off" id="search-input" class="search" placeholder="Search..." maxlength="20" onkeypress="return onKeyPress(event)">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search">
+      </ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/zcblog/img/in-post/2018.09/02/post-bg-dreamer.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/zcblog/img/in-post/2018.09/02/post-bg-dreamer.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+<header class="intro-header" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB" title="生活">生活</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95" title="面试">面试</a>
+                        
+                    </div>
+                    <h1>一场工作，一场梦</h1>
+                    
+                    <h2 class="subheading">大家好，我是来自互联网行业的一位小学生，没有很了不起的开发项目，也没有大牛那华丽的代码。</h2>
+                    <span class="meta">Posted by caojiele on September 2, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- 添加评论系统 -->
+<link rel="stylesheet" href="../../../../css/gitalk.css">
+<script src="../../../../js/gitalk.min.js"></script>
+
+<!-- 添加打赏 -->
+<link href="/css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<blockquote>
+  <p>版权声明：本文为微信公众号原创文章
+<a href="https://mp.weixin.qq.com/s?__biz=MzUyOTUyMDA5MQ==&amp;mid=2247483780&amp;idx=1&amp;sn=e312d3fc94ab5ded21d069501f95564f&amp;chksm=fa5e8530cd290c260bc376e834e885f618e2b078ae2f3a73cc24cd13c14f979dfdae036d8ce0&amp;token=1705064804&amp;lang=zh_CN#rd">一场工作，一场梦。</a>转载请保留链接 ;)</p>
+</blockquote>
+
+<p> 大家好，我是来自互联网行业的一位小学生，没有很了不起的开发项目，也没有大牛那华丽的代码。而从2012年开始，我就在学校开始接触了编程，但是毕竟专业的原因，学校给我的感觉还是以偏硬件为主，什么单片机，树莓派等等。后来毕业那会参加了考研，认为大学没有经过考研的洗礼是不完整的，呵呵，现在想起来真天真。考研失败后，我踏入了互联网这个行业，比同龄的人都要晚。当初估计也和大多数同僚一样，都是奔着高收入的念头加入了这个行业。现实是毕竟你比别人都起点低，毕了业那会虽然每天面试的机会确实很多，但是大公司流程多，轮次多；小公司还好，最多两轮就来offer了。找工作也就两周的时间，就已经迫不及待的把自己给“卖”了出去，可能是当时的一个浮躁的心态和一个浮躁的天气，也有可能看到周围的同学都已经找到了工作而不甘心。虽然这不是一家互联网行业的公司，但是是一个这个世纪逐步走向人们视线的行当，生物技术行业。在里面主要职能就是负责软件开发这一块的工作，第一次也接触了C#，也逐渐了解了这个行业涉及到的IT具体方面的工作。所以当意识工作一段时间后，我觉得有必要回顾一下这几年所犯下的错误，做一做经验总结，并且给正在这个职业上奋斗的人们提出我的一些忠告。开发行业变化得很快，我无法肯定在未来十年里这些建议是否一直有效，但我相信这些话对你们是肯定有所帮助的，不管是刚开始工作的小学生还是工作几年的老司机们。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6039661-9de096f4a8844db3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" /></p>
+
+<p>一、要坚持使用一个开发平台，框架或语言</p>
+
+<p>在过去的几年里，我所犯的最大错误是：几乎每次我换工作时也转换了开发平台。</p>
+
+<p>我的经历从大学的嵌入式 C 编程开始，到Java 企业开发，到用C# 开发windows桌面应用，再pyhton开发自动化应用，然后用 Objective-C 写 iOS 应用程序，到用 NDK 编写 Android 库，最后到写 Android 应用。系统也从liunx换成windows，再换成OS，这无疑是这段工作经历所带来的。</p>
+
+<p>这个职业经历听起来令人敬畏，但实际上你们的雇主并不关心。雇主们并不会重点关注你拥有各式各样的开发经验，但如果他们看到你没有足够的 Android 应用开发经验，你就不可能获得一个 Android 开发的工作。</p>
+
+<p>转换平台会对你的简历产生巨大的负面影响。对于一个雇主来说，实际上他没办法通过简历来验证你是不是某一特定开发领域的专家，为你付出大量资金是否合理。</p>
+
+<p>大多数公司都不关心你的过去，技术面试会更加重要。这就是为什么很多经历尚浅但专业对口的开发者可以找到工作的原因。</p>
+
+<p>那么我们如何适应市场的变化呢？只要你不停地敲代码，你就能自然而然地适应市场，但你也需要投入一些时间在新技能上，应在空闲时抽出时间来学习新技能，而且你也要降低期望薪水。你需要后退一步，才能前进两步。</p>
+
+<p>一旦你找到一个让你觉得舒服的平台，框架或语言，就应该坚持下去。从长远看，你期望的薪水和你的工作能力都会比频繁跳槽来得更高。找到最需要你的专属技能的好公司，然后踏实地在那里工作。我知道这听起来很简单，但我花了很多年才意识到这点。</p>
+
+<p>二、不要为高工资追求管理角色</p>
+
+<p>以前我总是以为那些穿着西装，作行政决策的管理者拿的薪水高得令人神往。虽然在一些情况下这没错，但这所占比例很小，经验丰富的开发者的薪金一般会比中等管理者更好。</p>
+
+<p>在我早期的职业生涯中，我一直想进入项目管理。然而17年有了第一家工作室后，自然而然接项目中不得不面对项目管理这块，我自修了管理的相关知识，在那里我学到了很多有趣的东西。但最后我意识到这不并适合我。</p>
+
+<p>在做开发者的时候，我总是感到公司缺乏企业文化，尤其是缺少技术因素的企业文化。然而在做了管理者之后，不仅编程水平无法提高，而且在企业文化的孤独感甚至更加强烈。最终当我离开这个岗位重归技术开发时，我终于开始重新欣赏我的开发工作。</p>
+
+<p>如果你对敲代码感到厌烦了，那么转成管理岗并不是解决方案，更好的办法是横向移动，换一个部门，换一家公司，或者是旅行，甚至可以选择在国外工作来解放你的思想，在全世界有许多技术中心，那里对开发者的要求很高，这能帮助你打开眼界。</p>
+
+<p>三、休息一段时间</p>
+
+<p>我从来没有“失业”，直到去年。因为互联网寒冬，公司面临裁员问题，不得不告别职场。我感到需要休息一下来“重构”我的职业生涯，事实证明这是我所作出的最好的决定之一。</p>
+
+<p>我休息了 2 个月，我能感觉到身边的每个人都在担心我的职业生涯即将结束，但所发生的一切恰恰相反。</p>
+
+<p>经过这几年不停地跳槽和匆匆忙忙地完成各种带薪年假，我终于体会到“失业”是如此“幸福”。事实上，在我们的职业生涯中，“幸福感”确实是最应该追求的东西。</p>
+
+<p>从我的情况来说，在这一段休息时间当中，我是将自己这几年的工作项目和一些开发经验进行了总结，同时把自己Github、Gitee等开源托管平台和博客都整理了一下，其中有幸参与了阿里中间件部门Dubbo的开发，成为了committer。业余也是不断练习自己的英语口语，天天拿着手机练习发音，不拿到90分以上就是不甘心，这对自己想去外企尝试也是多了一份保障。</p>
+
+<p>重新找回工作是很容易的，比预期的要容易得多。所以，如果你觉得自己需要的话，不要害怕一个长时间的休假。简历中的一段空白对于开发者来说不会被人认为有错。</p>
+
+<p>当然，如果你读了这篇文章后，无论你是否准备来个长期休假，请一定要遵循我下面的这几条忠告：</p>
+
+<ul>
+  <li>总是编码（just do it)</li>
+</ul>
+
+<p>即使是休息也不要停止编程，在我这段休息期间，我搭了一个博客的框架，一个使用Jekyll主题的博客项目。当然博客对于开发者好比公司官网一样，这里代表了你的学习足迹和开发经验展示的平台。</p>
+
+<p>多亏了这个小项目，让我在简历和面试中有了不少谈资。我尝试了许多主题和框架，比如Hexo等等，但都感觉不是我喜欢的菜。而这个<a href="https://caojiele.com">网站</a>至今都在更新使用着。</p>
+
+<p>我真希望早点开始做这件事。我们的开发工作往往是重复的，时间越长，积累的编程习惯越难以更改，也让我们自我提高的空间越来越少。</p>
+
+<p>从长远来看，拥有个人项目、阅读、写博客和参加访谈都会有助于你成为一个更好的开发人员。只要你觉得有意思，就把你的代码推到 GitHub，并把你的经验与社区分享。</p>
+
+<ul>
+  <li>成为开发者社区的一员</li>
+</ul>
+
+<p>当我还在大学的时候，我总是懒得参加各种社团和俱乐部活动。当我找到我的第一份开发工作时，最不乐意做的也是和其他开发者闲聊闲逛。</p>
+
+<p>但是我错了。同行聚会和进入开发群是很有趣的事情，是结识开发者伙伴的好地方。如果你想在这个行业里做到最好，就尽量不要消极被动。与坐在你旁边的人交谈，提供你的帮助，分享你的经验。每个人都喜欢谈论自己的经历，更何况你也许会遇到很多潜在的雇主。</p>
+
+<p>在那里你会碰到许多需要教练的初学者团体，你可以指导新手，给他们提供练手的机会，甚至赞助活动。</p>
+
+<p>当然，要学习别人的开发技巧并且勇于实践，要热情地欢迎不同意见的人讲话，勇敢地听取他们的意见。</p>
+
+<ul>
+  <li>最好不要在招聘网站上求职</li>
+</ul>
+
+<p>招聘网站的背后是复杂的人力资源流程、候选人跟踪系统、滥发个人简历和混乱的沟通，这也是许多公司找不到人才而要依靠猎头公司的几个重要原因。</p>
+
+<p>优秀的人才应该跳过这些。网络是寻找人才之路，更多地关注当地的社区消息，当有人离开一个重要的职位，当一个有意思的公司得到了融资，或者某个企业人事变动正在招聘人时，你都会获得最新的第一手消息。</p>
+
+<p>你也能通过网络社交得知哪些公司的福利比较好，各公司的大多数开发者都会真诚对待你，他们会告诉你这些公司的架构是否老旧，经理是不是人品够好，甚至工资待遇怎么样。</p>
+
+<p>如果你看到一个有意向的工作机会，首先看看你的社交网，看看你的领英用户组或脉脉朋友圈，是否有人已经在那里工作了，或者问他们是否认识某些人。然后直接与他们联系，与那个公司的 CTO、招聘经理或其他开发人员直接交谈。</p>
+
+<p>猎头是好的，但不要依赖他们。他们的任务只是帮助企业填上一个职位的空缺，因为他们并不为你工作。如果他们推荐的职位的确非常适合你所寻找的工作，那么你就去做，如果觉得不适合，那么就告诉他们：谢谢，我不去。</p>
+
+<ul>
+  <li>正确的对待的离职</li>
+</ul>
+
+<p>离职前一定要找好下家吗？我相信这是所有行业的工作者在即将跳槽前所面临的问题。正常来说，离职前是要找下家的。离职无非分为两种，一种主动离职，另一种被离职；后者不说，找下家那是必须，公司也会给你时间找下家，我也相信离职前找到下家无非是多数的，而裸辞者可能会处于道德上制高点，好比分手原因说：“我不是因为别的女孩，就是觉得我们之间没有感觉了。”你们看，对于这些裸辞者，人家不是得陇望蜀、骑驴找马，企业会想，这是个好员工呀。但实际上在当今社会上，这样高风亮节的人已经少之又少，就像你是HR一样，别人来应聘说我是裸辞，你会相信吗？无疑心里是打了个问号的。</p>
+
+<p>作为这个社会的建设者，你在裸辞时还是要为自己的高风亮节承担一些不必要的“麻烦”，例如：</p>
+
+<p>1、求职时的困难</p>
+
+<p>裸辞后会给你的履历上出现“断档”的现象，同时也会增加你面试的难度，面试官会质疑，为什么你还没找到工作就辞职了？这里面有足够的想象空间，是不是因为工作态度，缺乏责任心？还是身体或心理上的原因？等等一系列的疑问会在面试官的脑袋里面放电影一样出现。社招时，HR为了避免招聘风险，会给工作断档的候选人画个问号，假如接下来还有别的疑点，会被直接pass调，因为这样招聘的风险会被放大很多，HR没有足够精力和成本去做背景调查，找个靠谱的人会省事很多。</p>
+
+<p>2、辞职后的处境</p>
+
+<p>找一份心仪的工作没那么容易，也许 3 个月，或者半年。要不然降低你的预期找个差强人意的工作，要不接着等，希望这段时间希望你不要有太大的经济压力和健康问题。</p>
+
+<p>持续一段时间面试却找不到合适的职位，加上缺少必要的社交机会，可能会对自己能力产生怀疑，自我效能感降低，慢慢产生抑郁性情绪，持续下去还会导致一些慢性病影响身体健康。这个不是危言耸听。</p>
+
+<p>如果自己意志力坚定还好。可是，父母或爱人也会有压力，担心你、心疼你，考虑过他们的感受没有？</p>
+
+<p>3、或受影响的信用</p>
+
+<p>根据目前政策，还没有实质性的信用影响，只有风险。工资流水往往是银行、使馆最为认可的收入证明方式，稳定的工薪族比无固定职业者更容易申请到贷款或签证。</p>
+
+<p>虽然中国人民银行的征信体系并不记录你的工作信息，但在一些贷款等需要社会信用评价时，经常断档可能给人不稳定的印象。</p>
+
+<p>所以做大部分人都做的事情，即使不符合你的价值观，但是会显得比较正常。坚持自己的原则，可能会脱离了群体，显得不太靠谱。</p>
+
+<p>反观骑驴找马的人：</p>
+
+<p>虽然请病假面试，最后说离职就离职，刚听到离职信息公司老板或 HR 会感到背叛，但大多数人都这样啊，在统计学上人家是正态分布的中间 95%的人，是正常值，也就是「靠谱」。</p>
+
+<p>所以大众不会谴责他，你为什么请假去面试，你太过分了！</p>
+
+
+                <hr style="visibility: hidden;">
+            
+     <!-- 打赏功能 -->
+            <div>
+                <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                <div>☛小礼物走一走，来Github关注我☚</div>
+                <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                    <span>打 赏</span>
+                </button>
+                <div id="QR" style="display: none;">
+                     
+                <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="/img/payimg/weipayimg.jpg" alt="caojiele 微信支付"/>
+                <p>微信支付</p>
+                </div>
+                <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="/img/payimg/alipayimg.jpg" alt="caojiele 支付宝"/>
+                <p>支付宝</p>
+                </div>                        
+             </div>
+         </div>         
+     </div>
+		    
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/zcblog/2018/09/02/back-to-alibaba/" data-toggle="tooltip" data-placement="top" title="阿里云道哥自述：重回阿里的29个月">
+                        Previous<br>
+                        <span>阿里云道哥自述：重回阿里的29个月</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/zcblog/2018/09/21/alibaba-nacos-discovery1/" data-toggle="tooltip" data-placement="top" title="初识 Nacos(上）">
+                        Next<br>
+                        <span>初识 Nacos(上）</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+<!--                  -->
+
+<!--                  -->
+		
+		<!--   gitalk       -->
+                
+                <div class="comment">
+                    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2018-09-02 00:00:00 +0800',
+    clientID: '71d864566f502c0a73ba',
+    clientSecret: '0275406b08f33cc8118d02eb9332cfb707f13bf0',
+    repo: 'caojiele.github.io',
+    owner: 'caojiele',
+    admin: ['caojiele'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+
+                </div>
+                
+             </div>  
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/zcblog/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                    title="数据库"
+                    rel="2">数据库</a>
+        
+                <a data-sort="0015" 
+                    href="/zcblog/archive/?tag=Java"
+                    title="Java"
+                    rel="11">Java</a>
+        
+                <a data-sort="0021" 
+                    href="/zcblog/archive/?tag=%E6%85%95%E8%AF%BE%E7%BD%91%E6%89%8B%E8%AE%B0"
+                    title="慕课网手记"
+                    rel="5">慕课网手记</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95"
+                    title="面试"
+                    rel="3">面试</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=Dubbo"
+                    title="Dubbo"
+                    rel="3">Dubbo</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=RPC"
+                    title="RPC"
+                    rel="3">RPC</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%88%86%E5%B8%83%E5%BC%8F"
+                    title="分布式"
+                    rel="2">分布式</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1"
+                    title="微服务"
+                    rel="2">微服务</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="2">生活</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Nacos"
+                    title="Nacos"
+                    rel="2">Nacos</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring"
+                    title="Spring"
+                    rel="2">Spring</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring+Cloud"
+                    title="Spring Cloud"
+                    rel="2">Spring Cloud
+    </div>
+</section>
+
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://huangxuan.me/">黄玄的博客</a></li>
+  
+  <li><a href="http://www.xuxueli.com/blog/#/">许雪里的博客</a></li>
+  
+  <li><a href="https://mercyblitz.github.io/">小马哥的技术博客</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="https://yizibi.github.io">一之笔的博客</a></li>
+  
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+<!--  -->
+
+
+ -->
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                本站总访问量:<span id="busuanzi_value_site_pv"></span>，本站访客数:<span id="busuanzi_value_site_uv"></span>，本文总阅读量:<span id="busuanzi_value_page_pv"></span>
+                
+			
+                    <br>
+		    <img src="/img/root/logo-record.png" style="margin-left"/>
+			Copyright &copy; Jlcao Blog 2019  
+                    <br>
+			
+		    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43021102000161" 
+		    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			    湘公网安备 43021102000161号</a> |
+		    
+                    Powered by <a href="https://caojiele.com">Jlcao Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+		  </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- jQuery -->
+<script src="/zcblog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/zcblog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/zcblog/js/hux-blog.min.js "></script>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/zcblog/js/snackbar.js "></script>
+<script src="/zcblog/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-120526213-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Search -->
+ <script>
+     function onKeyPress(e) {
+         var keyCode = null;
+         if(e.which)
+             keyCode = e.which;
+         else if(e.keyCode)
+             keyCode = e.keyCode;
+         if(keyCode == 13) {
+             location.href="/search/?q=" + document.getElementById('search-input').value;
+             return false;
+         }
+         return true;
+     }
+     var url_string = window.location.href;
+    if (url_string.indexOf('search/?q') > 0){
+        document.getElementById('search-ic').classList.toggle('hidden');
+        var url = new URL(url_string);
+        var question = url.searchParams.get("q");
+        let title = document.getElementById('search-qs');
+        title.innerHTML = '"' + question + '"';
+        SimpleJekyllSearch({
+            searchtext: question,
+            resultsContainer: document.getElementById('results-container-list'),
+            json: '/search.json',
+            searchResultTemplate: '<li>\n' +
+                '                <div class="cbp_tmlabel result">\n' +
+                '                    <a href="{url}">\n' +
+                '                        <h2 id="boxoffice">{title}</h2>\n' +
+                '                        <ul>\n' +
+                '                            <li>\n' +
+                '                                {desc}' +
+                '                            </li>\n' +
+                '                        </ul>\n' +
+                '                        <br>\n' +
+                '                    </a>\n' +
+                '                </div>\n' +
+                '            </li>',
+            noResultsText: '',
+            fuzzy: false,
+            limit: 10000
+        });
+    } else {
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
+            noResultsText: '',
+            fuzzy: false
+        });
+    }
+ </script>
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Back to the top -->
+<a id="rocket" href="#top" class=""></a>
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/root/icon_wechat.png" width="0" height="0" />     
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

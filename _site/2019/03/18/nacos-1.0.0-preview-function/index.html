@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计以及架构 | 曹杰乐，Java & Mobile Lover，Software Engineer | 这里是 @caojiele 曹杰乐 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="曹杰乐, Jiele曹杰乐, Jiele, Jack-cao, @caojiele, 曹杰乐的博客, Jlcao Blog, 博客, 个人网站, 互联网, Java, node.js, 后端, 开发">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nacos 1.0.0 功能预览 - 曹杰乐的博客 | Jlcao Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="
+  本文来自于我的简书：Nacos 1.0.0 功能预览，转载请保留链接 ;)
+
+">
+    
+    <meta property="article:published_time" content="2019-03-18T00:00:00Z">
+    
+    
+    <meta property="article:author" content="caojiele">
+    
+    
+    <meta property="article:tag" content="Nacos">
+    
+    <meta property="article:tag" content="微服务">
+    
+    <meta property="article:tag" content="Java">
+    
+    
+    <meta property="og:image" content="http://localhost:4000https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg">
+    <meta property="og:url" content="http://localhost:4000/2019/03/18/nacos-1.0.0-preview-function/">
+    <meta property="og:site_name" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <title>Nacos 1.0.0 功能预览 - 曹杰乐的博客 | Jlcao Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/zcblog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/zcblog/img/root/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/zcblog/2019/03/18/nacos-1.0.0-preview-function/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/zcblog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/zcblog/css/hux-blog.min.css">
+    
+    <!-- Return to the top CSS -->
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            <a href="javascript:history.back()" style="font-size:28px" class="fa fa-angle-left navbar-brand"></a>
+            
+            
+            <a class="navbar-brand" href="/zcblog/">Jlcao Blog</a>
+            
+             <a href="javascript:void(0)" class="fa fa-search navbar-brand search-icon" id="search-ic"></a>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/zcblog/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/cooperation/">Cooperation</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>    
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+    
+<!-- Search Box -->
+<div class="search-box hidden">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" autocomplete="off" id="search-input" class="search" placeholder="Search..." maxlength="20" onkeypress="return onKeyPress(event)">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search">
+      </ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/zcblog/img/in-post/2019.03/18/post-nacos-1.0.0.png" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/zcblog/img/in-post/2019.03/18/post-nacos-1.0.0.png');
+        background: ;
+    }
+
+    
+</style>
+
+<header class="intro-header" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=Nacos" title="Nacos">Nacos</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1" title="微服务">微服务</a>
+                        
+                        <a class="tag" href="/zcblog/archive/?tag=Java" title="Java">Java</a>
+                        
+                    </div>
+                    <h1>Nacos 1.0.0 功能预览</h1>
+                    
+                    <h2 class="subheading">Version 1.0.0 marks Nacos architecture has been stable</h2>
+                    <span class="meta">Posted by caojiele on March 18, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- 添加评论系统 -->
+<link rel="stylesheet" href="../../../../css/gitalk.css">
+<script src="../../../../js/gitalk.min.js"></script>
+
+<!-- 添加打赏 -->
+<link href="/css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<blockquote>
+  <p>本文来自于我的简书：<a href="https://www.jianshu.com/p/7342f3a63094">Nacos 1.0.0 功能预览</a>，转载请保留链接 ;)</p>
+</blockquote>
+
+<p>Nacos 1.0.0 是正式 GA 的版本，在架构、功能和API设计上进行了全方位的重构和升级，1.0.0版本标志着Nacos的架构已经稳定，API列表最终确定。升级到1.0.0相比升级到其他版本，需要额外的一些工作，本文专门介绍如何从Nacos 0.8.0以上版本升级到1.0.0 版本的所有步骤和细节。</p>
+
+<h2 id="重要提示">重要提示</h2>
+<p>Nacos 1.0.0 服务端不兼容 0.8.0 以前的版本，如果您想升级到1.0.0，请先升级服务端到0.8.0版本。同样的，Nacos 1.0.0 不兼容 0.8.0 以下版本的客户端访问。</p>
+
+<h2 id="变更列表">变更列表</h2>
+<h3 id="naming-模块">naming 模块</h3>
+<ul>
+  <li><a href="#注册实例支持ephemeral字段">注册实例支持 <code class="highlighter-rouge">ephemeral</code>字段</a> <a href="https://github.com/alibaba/nacos/issues/502">#502</a>,<a href="https://github.com/alibaba/nacos/issues/677">#677</a>;</li>
+  <li><a href="#去除了服务的健康检查模式">去除了服务的健康检查模式</a>；</li>
+  <li><a href="#注册实例支持groupName字段">注册实例支持 <code class="highlighter-rouge">groupName</code>字段</a> <a href="https://github.com/alibaba/nacos/issues/269">#269</a>;</li>
+  <li><a href="#去掉了/nacos/v1/ns/api/下的所有接口，转移到其他URL">去掉了/nacos/v1/ns/api/下的所有接口，转移到其他URL</a> <a href="https://github.com/alibaba/nacos/issues/651">#651</a>;</li>
+  <li><a href="#增加了Server状态的设置">增加了<code class="highlighter-rouge">Server</code>状态的设置</a> <a href="https://github.com/alibaba/nacos/issues/744">#744</a>;</li>
+  <li><a href="#增加Server运行模式的设置">增加<code class="highlighter-rouge">Server</code>运行模式的设置</a> <a href="https://github.com/alibaba/nacos/issues/745">#745</a>;</li>
+  <li><a href="#增加全局推送开关">增加全局推送开关</a> <a href="https://github.com/alibaba/nacos/issues/634">#634</a>;</li>
+  <li><a href="#支持启动时数据预热">支持启动时数据预热</a> <a href="https://github.com/alibaba/nacos/issues/629">#629</a>;</li>
+  <li><a href="#元数据编辑框优化">元数据编辑框优化</a> <a href="https://github.com/alibaba/nacos/issues/479">#479</a>;</li>
+</ul>
+
+<h3 id="config-模块">config 模块</h3>
+<ul>
+  <li><a href="#支持MySQL-80">支持MySQL 8.0</a> <a href="https://github.com/alibaba/nacos/issues/613">#613</a>;</li>
+</ul>
+
+<h3 id="其他">其他</h3>
+<ul>
+  <li><a href="#API完整列表开放，模型设计和架构设计文档发布">API完整列表开放，模型设计和架构设计文档发布</a>；</li>
+</ul>
+
+<h2 id="变更详情">变更详情</h2>
+<h3 id="注册实例支持ephemeral字段">注册实例支持ephemeral字段</h3>
+
+<p>Nacos 在 1.0.0版本 <code class="highlighter-rouge">instance</code>级别增加了一个<code class="highlighter-rouge">ephemeral</code>字段，该字段表示注册的实例是否是临时实例还是持久化实例。如果是临时实例，则不会在 Nacos 服务端持久化存储，需要通过上报心跳的方式进行包活，如果一段时间内没有上报心跳，则会被 Nacos 服务端摘除。在被摘除后如果又开始上报心跳，则会重新将这个实例注册。持久化实例则会持久化被 Nacos 服务端，此时即使注册实例的客户端进程不在，这个实例也不会从服务端删除，只会将健康状态设为不健康。</p>
+
+<p><img src="https://raw.githubusercontent.com/caojiele/caojiele.github.io/master/img/in-post/2019.03/18/post-ephemeral.png" alt="ephemeral字段" /></p>
+
+<p>同一个服务下可以同时有临时实例和持久化实例，这意味着当这服务的所有实例进程不在时，会有部分实例从服务上摘除，剩下的实例则会保留在服务下。</p>
+
+<p>另一个需要注意的是，临时实例和持久化实例，在特定的服务端进行模式下可能不允许进行注册，这和下面要讲的第5个变更有关。</p>
+
+<h4 id="注意事项">注意事项</h4>
+<ul>
+  <li>当从老版本的 Nacos 升级到 Nacos 1.0.0 时，从磁盘加载的实例数据会被置为持久化实例，而只存在于内存里的实例数据将会丢失。</li>
+  <li>此时若老客户端再连上 Nacos Server 进行实例注册，会以当前 Server 的运行模式来设置是否持久化实例。</li>
+  <li>若老客户端只是在持续发送客户端心跳，那么在Server以AP模式运行时，如果实例存在，会自动进行注册。</li>
+</ul>
+
+<h3 id="去除了服务的健康检查模式">去除了服务的健康检查模式</h3>
+
+<p>之前服务的健康检查模式有三种：client、server 和none, 分别代表客户端上报、服务端探测和取消健康检查。在控制台操作的位置如下所示：</p>
+
+<p><img src="https://raw.githubusercontent.com/caojiele/caojiele.github.io/master/img/in-post/2019.03/18/post-health-check.png" alt="健康检查模式" /></p>
+
+<p>在 Nacos 1.0.0 中将把这个配置去掉，改为使用实例的<code class="highlighter-rouge">ephemeral</code>来判断，<code class="highlighter-rouge">ephemeral</code>为<code class="highlighter-rouge">true</code>对应的是服务健康检查模式中的 client 模式,为<code class="highlighter-rouge">false</code>对应的是 server 模式。</p>
+
+<h3 id="注册实例支持groupname字段">注册实例支持groupName字段</h3>
+
+<p>客户端注册实例时，可以在方法级别指定要注册的分组名，这个分组名和服务名是对服务的一个二维的标识，二者共同定位一个服务。一个典型的使用分组的实例如下：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">namingServer</span><span class="o">.</span><span class="na">registerInstance</span><span class="o">(</span><span class="s">"nacos.test.1"</span><span class="o">,</span><span class="s">"group1"</span><span class="o">,</span><span class="n">instance</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>不指定分组的接口依然是支持的，此时会在服务端为这个服务分配一个默认的分组：DEFAULT_GROUP。</p>
+
+<h3 id="去掉了nacosv1nsapi下的所有接口转移到其他url">去掉了/nacos/v1/ns/api/下的所有接口，转移到其他URL</h3>
+
+<p>为了让 Nacos 的 API 分类更加合理，管理更加清晰，原来在/nacos/v1/ns/api/下的接口都会转移到相应的其他URL下。Nacos 服务发现总体定义了 /instance,/service,/cluster,/health,/operator,/catalog,/raft 等 URL 目录，后面所有的 openAPI 都会根据其类型放到相应的 URL 下。对用户造成的影响是一些早期的版本客户端可能无法在访问 Nacos 服务端。</p>
+
+<h4 id="注意事项-1">注意事项</h4>
+<ul>
+  <li>0.8.0及一下版本客户端都有调用这个 URL 下的接口，0.8.0 只依赖/nacos/v1/ns/api/hello 接口，所以对0.8.0的兼容问题不大。</li>
+  <li>多语言 SDK 和 DNS-F 需要检查下调用的接口，及时升级。</li>
+</ul>
+
+<h3 id="增加了server状态的设置">增加了Server状态的设置</h3>
+
+<p>Nacos 增加了对 Server 状态的控制，所有的状态都定义在<code class="highlighter-rouge">com.alibaba.nacos.naming.cluster.ServerStatus</code>类里。</p>
+
+<p><img src="https://raw.githubusercontent.com/caojiele/caojiele.github.io/master/img/in-post/2019.03/18/post-server.png" alt="Server状态" /></p>
+
+<p>各个状态的含义介绍如下：</p>
+<ul>
+  <li>UP: Server 一切正常，读写请求都会被接受；</li>
+  <li>DOWN: Server 异常，所有请求会返回 HTTP 503 错误；</li>
+  <li>STARTING: Server 还在启动中，所有请求返回 HTTP 503 错误；</li>
+  <li>STARTING：Server 还在启动中，所有请求返回HTTP 503 错误；</li>
+  <li>PAUSED：Server 被人工暂停，区别于 DOWN 可能是系统自己检测到异常，然后设置 DOWN 状态，PAUSED 状态表示当前 Server 可能是没问题的，只是人工进行了干预；</li>
+  <li>WRITE_ONLY: 只有非 GET 请求会被接受；</li>
+  <li>READ_ONLY: 只有 GET 请求会被接受；</li>
+</ul>
+
+<p>用户可以使用如下接口来修饰集群所有机器的状态，如果再加上<code class="highlighter-rouge">debug=true</code>参数,则只修改当前机器的状态。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">curl</span><span class="o">-</span><span class="no">X</span> <span class="no">PUT</span>
+<span class="err">'</span><span class="n">$NACOS_SERVER</span><span class="o">:</span><span class="mi">8848</span><span class="o">/</span><span class="n">nacos</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ns</span><span class="o">/</span><span class="n">operator</span><span class="o">/</span><span class="n">switches</span><span class="o">?</span><span class="n">entry</span><span class="o">=</span><span class="n">overridenServerStatus</span><span class="o">&amp;</span><span class="n">value</span><span class="o">=</span><span class="no">READ_ONLY</span><span class="err">'</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>同时这个状态是会自适应进行修改的，比如启动时这个状态为STARTING,等到数据装载完毕，则会自动将状态置为 UP,在运行过程中，如果检测到系统异常如磁盘满，则又会将状态置为DOWN。不过自适应的状态值优先级要低于使用接口设置的状态值，因此当你想恢复自适应的状态调解的时候，记得将接口中<code class="highlighter-rouge">overriddenServerStatus</code>设置为空。</p>
+
+<h3 id="增加server运行模式的设置">增加Server运行模式的设置</h3>
+
+<p>Server的运行模式，是指 Nacos Server 可以运行在多种模式下，当前支持三种模式：AP、CP和 MIXED 。这里的运行模式，使用的是CAP理论里的C、A和P概念。基于CAP理论，在分布式系统中，数据的一致性、服务的可用性和网络分区容忍性只能三者选二。一般来说分布式系统需要支持网络分区容忍性，那么就只能在C和A里选择一个作为系统支持的属性。C 的准确定义应该是所有节点在同一时间看到的数据是一致的，而A的定义是所有的请求都会收到响应。</p>
+
+<p>Nacos 支持 AP 和 CP 模式的切换，这意味着 Nacos 同时支持两者一致性协议。这样，Nacos能够以一个注册中心管理这些生态的服务。不过在Nacos中，AP模式和CP模式的具体含义，还需要再说明下。</p>
+
+<p>AP模式为了服务的可能性而减弱了一致性，因此AP模式下只支持注册临时实例。AP 模式是在网络分区下也能够注册实例。在AP模式下也不能编辑服务的元数据等非实例级别的数据，但是允许创建一个默认配置的服务。同时注册实例前不需要进行创建服务的操作，因为这种模式下，服务其实降级成一个简单的字符创标识，不在存储任何属性，会在注册实例的时候自动创建。</p>
+
+<p>CP模式下则支持注册持久化实例，此时则是以 Raft 协议为集群运行模式，因此网络分区下不能够注册实例，在网络正常情况下，可以编辑服务器别的配置。改模式下注册实例之前必须先注册服务，如果服务不存在，则会返回错误。</p>
+
+<p>MIXED 模式可能是一种比较让人迷惑的模式，这种模式的设立主要是为了能够同时支持临时实例和持久化实例的注册。这种模式下，注册实例之前必须创建服务，在服务已经存在的前提下，临时实例可以在网络分区的情况下进行注册。</p>
+
+<p>使用如下请求进行Server运行模式的设定：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">curl</span> <span class="o">-</span><span class="no">X</span> <span class="no">PUT</span>
+<span class="err">'</span><span class="n">$NACOS_SERVER</span><span class="o">:</span><span class="mi">8848</span><span class="o">/</span><span class="n">nacos</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ns</span><span class="o">/</span><span class="n">operator</span><span class="o">/</span><span class="n">switches</span><span class="o">?</span><span class="n">entry</span><span class="o">=</span><span class="n">serverMode</span><span class="o">&amp;</span><span class="n">value</span><span class="o">=</span><span class="no">CP</span><span class="err">'</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h4 id="注意事项-2">注意事项</h4>
+<ul>
+  <li>何时选择使用何种模式？一般来说，如果需要在服务级别编辑或者存储配置信息，那么 CP 是必须要使用的模式，如果不需要存储服务级别的信息，且服务实例是通过<code class="highlighter-rouge">nacos-client</code>注册，并能够保持心跳上报，那么就可以选择AP模式。当前主流的服务如 Spring cloud 和 Dubbo 服务，都适用于AP模式，而K8S服务和DNS服务，则适用于CP模式。AP模式的服务实例可以在CP模式下注册，例如Zookeeper,但是反过来不能。</li>
+  <li>切换运行模式，对原有数据不会影响，但是会影响新数据的创建和老数据的更新和删除。</li>
+</ul>
+
+<h3 id="增加全局推送开关">增加全局推送开关</h3>
+
+<p>支持了全局推送开关，可以打开或者关闭服务变更的推送，调用接口如下：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">curl</span> <span class="o">-</span><span class="no">X</span> <span class="no">PUT</span>
+<span class="err">'</span><span class="n">$NACOS_SERVER</span><span class="o">:</span><span class="mi">8848</span><span class="o">/</span><span class="n">nacos</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ns</span><span class="o">/</span><span class="n">operator</span><span class="o">/</span><span class="n">switches</span><span class="o">?</span><span class="n">entry</span><span class="o">=</span><span class="n">pushEnabled</span><span class="o">&amp;</span><span class="n">value</span><span class="o">=</span><span class="kc">false</span><span class="err">'</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>关闭推送后，客户端依然会通过轮询的方式来更新到数据，只是更新的速度没有推送那么快。</p>
+
+<h3 id="支持启动时数据预热">支持启动时数据预热</h3>
+
+<p>在老版本的Nacosz中，只要Server启动成功就会开始对外提供服务，此时服务的数据并不一定完全加载完成，这样可能会导致客户端接收到的数据并不完整。1.0.0增加了数据预热的逻辑，对于持久化数据，则会等待所有数据从磁盘加载完成，对于临时实例这样的非持久化数据，则会等待从其他Server拉取到完整数据。所有数据都准备好后，才会将Server状态置为UP。</p>
+
+<h4 id="注意事项-3">注意事项</h4>
+<ul>
+  <li>对于临时实例的预热，实现机制是Server在启动时会从其他Server节点拉取数据，拉取成功则启动成功，但是当从老版本Server升级到1.0.0时，由于这个拉取全量数据的接口在老版本Server不存在，那么第一个升级的机器将无法拉到任何数据，从而后面升级的机器也无法从第一个升级的机器拉取到数据。此时建议使用调用API将Server的运行状态设置为<code class="highlighter-rouge">WRITE_ONLY</code>,允许客户端数据逐步汇聚补偿上来，但是阻止任何查询的流量，等集群数据准备好以后，再将这个运行状态清空，集群自己调整运行状态，然后就会提供完整服务。</li>
+</ul>
+
+<h3 id="元数据编辑框优化">元数据编辑框优化</h3>
+
+<p>此前的元数据编辑框需要用户按照指定格式来编辑，容易出错，如下如所示：</p>
+
+<p><img src="https://raw.githubusercontent.com/caojiele/caojiele.github.io/master/img/in-post/2019.03/18/post-metadata-edit-box1.png" alt="编辑出错" /></p>
+
+<p>1.0.0将会对服务页面的元数据编辑框进行优化，在调整编辑框大小的同时，增加语法高亮，方便用户进行编辑和识别格式问题，一个大概的编辑框预览图如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/caojiele/caojiele.github.io/master/img/in-post/2019.03/18/post-metadata-edit-box2.png" alt="编辑框优化" /></p>
+
+<h3 id="支持mysql-80">支持MySQL 8.0</h3>
+
+<p>Nacos 1.0.0将支持MySQL 8.0 驱动。</p>
+
+<h3 id="api完整列表开发模型设计和架构设计文档发布">API完整列表开发，模型设计和架构设计文档发布</h3>
+<p>服务发现和配置管理的完整API列表会发布到官网，同时对于Nacos的数据模型，集群模型，架构设计及模块设计等文档也会发布。</p>
+
+<p>除了上面提到的变更，Nacos 1.0.0还进行了代码的优化和一些bug的修复，完整的变更列表可以参考：<a href="https://github.com/alibaba/nacos/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.0.0">https://github.com/alibaba/nacos/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.0.0</a></p>
+
+
+                <hr style="visibility: hidden;">
+            
+     <!-- 打赏功能 -->
+            <div>
+                <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                <div>☛小礼物走一走，来Github关注我☚</div>
+                <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                    <span>打 赏</span>
+                </button>
+                <div id="QR" style="display: none;">
+                     
+                <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="/img/payimg/weipayimg.jpg" alt="caojiele 微信支付"/>
+                <p>微信支付</p>
+                </div>
+                <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="/img/payimg/alipayimg.jpg" alt="caojiele 支付宝"/>
+                <p>支付宝</p>
+                </div>                        
+             </div>
+         </div>         
+     </div>
+		    
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/zcblog/2018/12/07/make-your-resume/" data-toggle="tooltip" data-placement="top" title="在Github Pages上部署简历">
+                        Previous<br>
+                        <span>在Github Pages上部署简历</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/zcblog/2019/03/22/dubbo-27-features/" data-toggle="tooltip" data-placement="top" title="Dubbo2.7 三大新特性详解">
+                        Next<br>
+                        <span>Dubbo2.7 三大新特性详解</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+<!--                  -->
+
+<!--                  -->
+		
+		<!--   gitalk       -->
+                
+                <div class="comment">
+                    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-03-18 00:00:00 +0800',
+    clientID: '71d864566f502c0a73ba',
+    clientSecret: '0275406b08f33cc8118d02eb9332cfb707f13bf0',
+    repo: 'caojiele.github.io',
+    owner: 'caojiele',
+    admin: ['caojiele'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+
+                </div>
+                
+             </div>  
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/zcblog/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                    title="数据库"
+                    rel="2">数据库</a>
+        
+                <a data-sort="0015" 
+                    href="/zcblog/archive/?tag=Java"
+                    title="Java"
+                    rel="11">Java</a>
+        
+                <a data-sort="0021" 
+                    href="/zcblog/archive/?tag=%E6%85%95%E8%AF%BE%E7%BD%91%E6%89%8B%E8%AE%B0"
+                    title="慕课网手记"
+                    rel="5">慕课网手记</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95"
+                    title="面试"
+                    rel="3">面试</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=Dubbo"
+                    title="Dubbo"
+                    rel="3">Dubbo</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=RPC"
+                    title="RPC"
+                    rel="3">RPC</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%88%86%E5%B8%83%E5%BC%8F"
+                    title="分布式"
+                    rel="2">分布式</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1"
+                    title="微服务"
+                    rel="2">微服务</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="2">生活</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Nacos"
+                    title="Nacos"
+                    rel="2">Nacos</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring"
+                    title="Spring"
+                    rel="2">Spring</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring+Cloud"
+                    title="Spring Cloud"
+                    rel="2">Spring Cloud
+    </div>
+</section>
+
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://huangxuan.me/">黄玄的博客</a></li>
+  
+  <li><a href="http://www.xuxueli.com/blog/#/">许雪里的博客</a></li>
+  
+  <li><a href="https://mercyblitz.github.io/">小马哥的技术博客</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="https://yizibi.github.io">一之笔的博客</a></li>
+  
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+<!--  -->
+
+
+ -->
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                本站总访问量:<span id="busuanzi_value_site_pv"></span>，本站访客数:<span id="busuanzi_value_site_uv"></span>，本文总阅读量:<span id="busuanzi_value_page_pv"></span>
+                
+			
+                    <br>
+		    <img src="/img/root/logo-record.png" style="margin-left"/>
+			Copyright &copy; Jlcao Blog 2019  
+                    <br>
+			
+		    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43021102000161" 
+		    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			    湘公网安备 43021102000161号</a> |
+		    
+                    Powered by <a href="https://caojiele.com">Jlcao Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+		  </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- jQuery -->
+<script src="/zcblog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/zcblog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/zcblog/js/hux-blog.min.js "></script>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/zcblog/js/snackbar.js "></script>
+<script src="/zcblog/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-120526213-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Search -->
+ <script>
+     function onKeyPress(e) {
+         var keyCode = null;
+         if(e.which)
+             keyCode = e.which;
+         else if(e.keyCode)
+             keyCode = e.keyCode;
+         if(keyCode == 13) {
+             location.href="/search/?q=" + document.getElementById('search-input').value;
+             return false;
+         }
+         return true;
+     }
+     var url_string = window.location.href;
+    if (url_string.indexOf('search/?q') > 0){
+        document.getElementById('search-ic').classList.toggle('hidden');
+        var url = new URL(url_string);
+        var question = url.searchParams.get("q");
+        let title = document.getElementById('search-qs');
+        title.innerHTML = '"' + question + '"';
+        SimpleJekyllSearch({
+            searchtext: question,
+            resultsContainer: document.getElementById('results-container-list'),
+            json: '/search.json',
+            searchResultTemplate: '<li>\n' +
+                '                <div class="cbp_tmlabel result">\n' +
+                '                    <a href="{url}">\n' +
+                '                        <h2 id="boxoffice">{title}</h2>\n' +
+                '                        <ul>\n' +
+                '                            <li>\n' +
+                '                                {desc}' +
+                '                            </li>\n' +
+                '                        </ul>\n' +
+                '                        <br>\n' +
+                '                    </a>\n' +
+                '                </div>\n' +
+                '            </li>',
+            noResultsText: '',
+            fuzzy: false,
+            limit: 10000
+        });
+    } else {
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
+            noResultsText: '',
+            fuzzy: false
+        });
+    }
+ </script>
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Back to the top -->
+<a id="rocket" href="#top" class=""></a>
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/root/icon_wechat.png" width="0" height="0" />     
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

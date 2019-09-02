@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计以及架构 | 曹杰乐，Java & Mobile Lover，Software Engineer | 这里是 @caojiele 曹杰乐 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="曹杰乐, Jiele曹杰乐, Jiele, Jack-cao, @caojiele, 曹杰乐的博客, Jlcao Blog, 博客, 个人网站, 互联网, Java, node.js, 后端, 开发">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="这是最好的时代 也是最坏的时代">
+    
+    <meta property="og:image" content="http://localhost:4000https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg">
+    <meta property="og:url" content="http://localhost:4000/page2/">
+    <meta property="og:site_name" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <title>曹杰乐的博客 | Jlcao Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/zcblog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/zcblog/img/root/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/zcblog/page2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/zcblog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/zcblog/css/hux-blog.min.css">
+    
+    <!-- Return to the top CSS -->
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            
+            <a class="navbar-brand" href="/zcblog/">Jlcao Blog</a>
+            
+             <a href="javascript:void(0)" class="fa fa-search navbar-brand search-icon" id="search-ic"></a>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/zcblog/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/cooperation/">Cooperation</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>    
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+    
+<!-- Search Box -->
+<div class="search-box hidden">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" autocomplete="off" id="search-input" class="search" placeholder="Search..." maxlength="20" onkeypress="return onKeyPress(event)">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search">
+      </ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Page Header -->
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/zcblog/img/root/home-bg-fj.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Jlcao Blog</h1>
+          <span class="subheading">这是最好的时代 也是最坏的时代</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                postlist-container
+            ">
+    			    <!-- canvas-nest.min.js -->   
+<script type="text/javascript" color="167,198,202" opacity='0.5' zIndex="-2" count="99" src="../../../../js/canvas-nest.min.js"></script>
+
+
+<div class="post-preview">
+    <a href="/zcblog/2019/03/30/dubbo/">
+        <h2 class="post-title">
+            Apache Dubbo
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Apache Dubbo™ (incubating)是一款高性能Java RPC框架。
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                在2011年10月27日，阿里巴巴开源了自己的SOA服务化治理方案的核心框架Dubbo，服务治理和SOA的设计理念开始逐渐在国内软件行业中落地，并被广泛应用。
+
+Dubbo作为阿里巴巴内部的SOA服务化治理方案的核心框架，在2012年时已经每天为2000+个服务提供3,000,000,000+次访问量支持，并被广泛应用于阿里巴巴集团的各成员站点。Dubbo自2011年开源后，已被许多非阿里系...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on March 30, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/03/29/springmvc-work/">
+        <h2 class="post-title">
+            SpringMVC
+        </h2>
+        
+        <h3 class="post-subtitle">
+            工作原理详解
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                先来看一下什么是 MVC 模式
+
+MVC 是一种设计模式。
+
+MVC 的原理图如下：
+
+
+
+SpringMVC 简单介绍
+
+SpringMVC 框架是以请求为驱动，围绕 Servlet 设计，将请求发给控制器，然后通过模型对象，分派器来展示请求结果视图。其中核心类是 DispatcherServlet，它是一个 Servlet，顶层是实现的Servlet接口。
+
+SpringMVC 使用
+
+...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on March 29, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/03/28/spring-ioc/">
+        <h2 class="post-title">
+            Spring IOC
+        </h2>
+        
+        <h3 class="post-subtitle">
+            容器源码分析
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                Spring 最重要的概念是 IOC 和 AOP，本篇文章其实就是要带领大家来分析下 Spring 的 IOC 容器。既然大家平时都要用到 Spring，怎么可以不好好了解 Spring 呢？阅读本文并不能让你成为 Spring 专家，不过一定有助于大家理解 Spring 的很多概念，帮助大家排查应用中和 Spring 相关的一些问题。
+
+本文采用的源码版本是 4.3.11.RELEASE，...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on March 28, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/03/22/dubbo-27-features/">
+        <h2 class="post-title">
+            Dubbo2.7 三大新特性详解
+        </h2>
+        
+        <h3 class="post-subtitle">
+            异步化改造,三大中心改造,服务治理增强
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于Dubbo官网，作者为@lexburner：Dubbo2.7 三大新特性详解，转载请保留链接 ;)
+
+
+
+
+
+  1. 背景介绍
+  2. 分支介绍
+  3. Dubbo 2.7 新特性
+  4. 异步化改造
+    
+      4.1 几种调用方式
+      4.2 Dubbo 2.6 异步化
+      4.3 Dubbo 2.7 异步化
+      4.4 异步化设...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by lexburner on March 22, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/03/18/nacos-1.0.0-preview-function/">
+        <h2 class="post-title">
+            Nacos 1.0.0 功能预览
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Version 1.0.0 marks Nacos architecture has been stable
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的简书：Nacos 1.0.0 功能预览，转载请保留链接 ;)
+
+
+Nacos 1.0.0 是正式 GA 的版本，在架构、功能和API设计上进行了全方位的重构和升级，1.0.0版本标志着Nacos的架构已经稳定，API列表最终确定。升级到1.0.0相比升级到其他版本，需要额外的一些工作，本文专门介绍如何从Nacos 0.8.0以上版本升级到1.0.0 版本的所有步骤和细节。...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on March 18, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2018/12/07/make-your-resume/">
+        <h2 class="post-title">
+            在Github Pages上部署简历
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Making Github Pages on your resume
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的简书：如何在Github Pages上生成部署简历，转载请保留链接 ;)
+
+
+背景
+每年的金三银四都是人员流动最大，找工作最好的时间段之一。而找工作就不得不需要更新简历，想到自己也会有这么一天，那么就来一起好好写一份简历吧。期间在网上找了不少写简历的资源，比如轻单-在线简历制作收录了一些在线生成简历的网站，有需要的童鞋可以直接拿走，不用再看这节课啦。
+
+怎么可能！我对自己...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Jlcao on December 7, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2018/10/01/failure-to-pay-wages/">
+        <h2 class="post-title">
+            百日维“薪”
+        </h2>
+        
+        <h3 class="post-subtitle">
+            上海温尔信息科技有限公司的讨薪之路
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的知乎：上海温尔信息科技有限公司—百日维“薪”，转载请保留链接 ;)
+
+
+
+
+
+  你的脸上云淡风轻，谁也不知道你的牙咬得有多紧。你走路带着风，谁也不知道你膝盖上仍有曾摔伤的淤青。你笑得没心没肺，没人知道你哭起来只能无声落泪。要让人觉得毫不费力，只能背后极其努力。我们没有改变不了的未来，只有不想改变的过去。
+
+
+
+
+
+
+
+  以下 上海温尔信息科技有限公司 简称 “温尔”
+...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on October 1, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2018/09/21/alibaba-nacos-discovery1/">
+        <h2 class="post-title">
+            初识 Nacos(上）
+        </h2>
+        
+        <h3 class="post-subtitle">
+            学习《Spring Cloud 服务发现新选择》
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的简书：初识 Nacos(上） 学习《Spring Cloud 服务发现新选择》，转载请保留链接 ;)
+
+
+最近在从零接触Alibaba 开源项目Nacos,学习的是小马哥(mercyblitz)的技术周报，之前看了后忘记总结，导致也没有什么印象。所以现在决定学习一章，写一篇学习感悟，并且持续更新下去。首先这一章节主要讲得是服务发现(Service Discovery)，作...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on September 21, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2018/09/02/job-dream/">
+        <h2 class="post-title">
+            一场工作，一场梦
+        </h2>
+        
+        <h3 class="post-subtitle">
+            大家好，我是来自互联网行业的一位小学生，没有很了不起的开发项目，也没有大牛那华丽的代码。
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  版权声明：本文为微信公众号原创文章
+一场工作，一场梦。转载请保留链接 ;)
+
+
+ 大家好，我是来自互联网行业的一位小学生，没有很了不起的开发项目，也没有大牛那华丽的代码。而从2012年开始，我就在学校开始接触了编程，但是毕竟专业的原因，学校给我的感觉还是以偏硬件为主，什么单片机，树莓派等等。后来毕业那会参加了考研，认为大学没有经过考研的洗礼是不完整的，呵呵，现在想起来真天真。考研失败后...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on September 2, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2018/09/02/back-to-alibaba/">
+        <h2 class="post-title">
+            阿里云道哥自述：重回阿里的29个月
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Back to Alibaba's 29 months
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的微信公众号：闪兔网络工作室，作者为阿里云首席安全研究员吴翰清。 阿里云道哥自述：重回阿里的29个月，转载请保留链接 ;)
+
+
+
+
+
+  无欲则刚
+
+
+回到阿里已经29个月了，算上此前在阿里的七年时间，已经为这家公司服役了将近十年。这十年的时光，加上2012年到2014年期间参与到安全宝创业的那两年，组成了迄今为止我的职业生涯。这些年经历的所有事情，吃过的所有苦头，所有的酸...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 吴翰清 on September 2, 2018
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/zcblog/">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/zcblog/page3">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+    		</div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+    <h5><a href="/zcblog/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                    title="数据库"
+                    rel="2">数据库</a>
+        
+                <a data-sort="0015" 
+                    href="/zcblog/archive/?tag=Java"
+                    title="Java"
+                    rel="11">Java</a>
+        
+                <a data-sort="0021" 
+                    href="/zcblog/archive/?tag=%E6%85%95%E8%AF%BE%E7%BD%91%E6%89%8B%E8%AE%B0"
+                    title="慕课网手记"
+                    rel="5">慕课网手记</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95"
+                    title="面试"
+                    rel="3">面试</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=Dubbo"
+                    title="Dubbo"
+                    rel="3">Dubbo</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=RPC"
+                    title="RPC"
+                    rel="3">RPC</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%88%86%E5%B8%83%E5%BC%8F"
+                    title="分布式"
+                    rel="2">分布式</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1"
+                    title="微服务"
+                    rel="2">微服务</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="2">生活</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Nacos"
+                    title="Nacos"
+                    rel="2">Nacos</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring"
+                    title="Spring"
+                    rel="2">Spring</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring+Cloud"
+                    title="Spring Cloud"
+                    rel="2">Spring Cloud
+    </div>
+</section>
+
+
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+  <hr>
+  <h5><a href="/zcblog/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+    
+    <img src="https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg" />
+    
+    
+    <p> When you look long into an abyss,the abyss looks into you<br> 当你凝视深渊时,深渊也在凝视你</p>
+    
+    <!-- SNS Link -->
+    
+
+
+<ul class="list-inline">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+  </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://huangxuan.me/">黄玄的博客</a></li>
+  
+  <li><a href="http://www.xuxueli.com/blog/#/">许雪里的博客</a></li>
+  
+  <li><a href="https://mercyblitz.github.io/">小马哥的技术博客</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="https://yizibi.github.io">一之笔的博客</a></li>
+  
+</ul>
+
+
+    		</div>
+        
+	</div>
+</div>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                本站总访问量:<span id="busuanzi_value_site_pv"></span>，本站访客数:<span id="busuanzi_value_site_uv"></span>，本文总阅读量:<span id="busuanzi_value_page_pv"></span>
+                
+			
+                    <br>
+		    <img src="/img/root/logo-record.png" style="margin-left"/>
+			Copyright &copy; Jlcao Blog 2019  
+                    <br>
+			
+		    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43021102000161" 
+		    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			    湘公网安备 43021102000161号</a> |
+		    
+                    Powered by <a href="https://caojiele.com">Jlcao Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+		  </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- jQuery -->
+<script src="/zcblog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/zcblog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/zcblog/js/hux-blog.min.js "></script>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/zcblog/js/snackbar.js "></script>
+<script src="/zcblog/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-120526213-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Search -->
+ <script>
+     function onKeyPress(e) {
+         var keyCode = null;
+         if(e.which)
+             keyCode = e.which;
+         else if(e.keyCode)
+             keyCode = e.keyCode;
+         if(keyCode == 13) {
+             location.href="/search/?q=" + document.getElementById('search-input').value;
+             return false;
+         }
+         return true;
+     }
+     var url_string = window.location.href;
+    if (url_string.indexOf('search/?q') > 0){
+        document.getElementById('search-ic').classList.toggle('hidden');
+        var url = new URL(url_string);
+        var question = url.searchParams.get("q");
+        let title = document.getElementById('search-qs');
+        title.innerHTML = '"' + question + '"';
+        SimpleJekyllSearch({
+            searchtext: question,
+            resultsContainer: document.getElementById('results-container-list'),
+            json: '/search.json',
+            searchResultTemplate: '<li>\n' +
+                '                <div class="cbp_tmlabel result">\n' +
+                '                    <a href="{url}">\n' +
+                '                        <h2 id="boxoffice">{title}</h2>\n' +
+                '                        <ul>\n' +
+                '                            <li>\n' +
+                '                                {desc}' +
+                '                            </li>\n' +
+                '                        </ul>\n' +
+                '                        <br>\n' +
+                '                    </a>\n' +
+                '                </div>\n' +
+                '            </li>',
+            noResultsText: '',
+            fuzzy: false,
+            limit: 10000
+        });
+    } else {
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
+            noResultsText: '',
+            fuzzy: false
+        });
+    }
+ </script>
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Back to the top -->
+<a id="rocket" href="#top" class=""></a>
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/root/icon_wechat.png" width="0" height="0" />     
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

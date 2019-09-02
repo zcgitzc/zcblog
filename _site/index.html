@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计以及架构 | 曹杰乐，Java & Mobile Lover，Software Engineer | 这里是 @caojiele 曹杰乐 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="曹杰乐, Jiele曹杰乐, Jiele, Jack-cao, @caojiele, 曹杰乐的博客, Jlcao Blog, 博客, 个人网站, 互联网, Java, node.js, 后端, 开发">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="这是最好的时代 也是最坏的时代">
+    
+    <meta property="og:image" content="http://localhost:4000https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg">
+    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:site_name" content="曹杰乐的博客 | Jlcao Blog">
+    
+    <title>曹杰乐的博客 | Jlcao Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/zcblog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/zcblog/img/root/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/zcblog/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/zcblog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/zcblog/css/hux-blog.min.css">
+    
+    <!-- Return to the top CSS -->
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            
+            <a class="navbar-brand" href="/zcblog/">Jlcao Blog</a>
+            
+             <a href="javascript:void(0)" class="fa fa-search navbar-brand search-icon" id="search-ic"></a>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/zcblog/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/zcblog/cooperation/">Cooperation</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>    
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+    
+<!-- Search Box -->
+<div class="search-box hidden">
+  <div class="wrapper">
+    <div class="search-grid">
+      <form class="search-form">
+        <div id="search-container">
+          <input type="text" autocomplete="off" id="search-input" class="search" placeholder="Search..." maxlength="20" onkeypress="return onKeyPress(event)">
+        </div>
+      </form>
+      <ul id="results-container" class="results-search">
+      </ul>
+      <div class="icon-close-container">
+        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Page Header -->
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/zcblog/img/root/home-bg-fj.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Jlcao Blog</h1>
+          <span class="subheading">这是最好的时代 也是最坏的时代</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                postlist-container
+            ">
+    			    <!-- canvas-nest.min.js -->   
+<script type="text/javascript" color="167,198,202" opacity='0.5' zIndex="-2" count="99" src="../../../../js/canvas-nest.min.js"></script>
+
+
+<div class="post-preview">
+    <a href="/zcblog/2019/07/09/js-module-introduce-myself/">
+        <h2 class="post-title">
+            JavaScript 模块化自我介绍
+        </h2>
+        
+        <h3 class="post-subtitle">
+            JavaScript module introduce myself
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                (程序猿自己的 自我介绍 )
+
+
+  下滑这里查看更多内容
+
+
+专门制作了适用于 Keynote 展示文稿的新布局，它能自动根据屏幕大小/旋转以一定比例填充屏幕，你也可以直接点击下方链接在新页面打开，来获得更好的、沉浸式的全屏体验。
+
+Watch Fullscreen →
+
+
+
+你也可以通过扫描二维码在手机上观看
+
+
+这个 Web Slides 开源在我的 Github 上，欢迎你帮助我完善...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on July 9, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/18/java-jvm-gc/">
+        <h2 class="post-title">
+            搞定JVM垃圾回收就是这么简单
+        </h2>
+        
+        <h3 class="post-subtitle">
+            当需要排查各种内存溢出问题、当垃圾收集成为系统达到更高并发的瓶颈时，我们就需要对这些“自动化”的技术实施必要的监控和调节。
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                写在前面
+
+常见面试题：
+
+  如何判断对象是否死亡（两种方法）。
+  简单的介绍一下强引用、软引用、弱引用、虚引用（虚引用与软引用和弱引用的区别、使用软引用能带来的好处）。
+  如何判断一个常量是废弃常量
+  如何判断一个类是无用的类
+  垃圾收集有哪些算法，各自的特点？
+  HotSpot为什么要分为新生代和老年代？
+  常见的垃圾回收器有那些？
+  介绍一下CMS,G1收集器。
+  M...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 18, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/17/rpc-introduction/">
+        <h2 class="post-title">
+            浅谈 RPC
+        </h2>
+        
+        <h3 class="post-subtitle">
+            RPC-远程过程调用，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于Dubbo官网：浅谈 RPC，转载请保留链接 ;)
+
+
+近几年随着微服务化项目的崛起，逐渐成为许多公司中大型分布式系统架构的主流方式，而今天所说的 RPC 在这其中扮演着至关重要的角色。随着这段日子公司项目微服务化的演进，发现在日常开发中都在隐式或显式的使用 RPC，一些刚刚接触 RPC 的小伙伴会感觉无所适从，而一些入行多年的老手虽然使用 RPC 经验丰富，但有些对其原理也...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 17, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/14/java-interview-mercyblitz/">
+        <h2 class="post-title">
+            小马哥Java面试题课程总结
+        </h2>
+        
+        <h3 class="post-subtitle">
+            面试虐我千百遍，Java 并发真讨厌
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的慕课网手记：小马哥Java面试题课程总结，转载请保留链接 ;)
+
+
+前段时间在慕课网直播上听小马哥面试劝退（”面试虐我千百遍，Java 并发真讨厌”），发现讲得东西比自己拿到offer还要高兴，于是自己在线下做了一点小笔记，供各位参考。
+
+课程地址：https://www.bilibili.com/video/av49124110
+
+源码文档地址：https://gith...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 14, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/10/docker/">
+        <h2 class="post-title">
+            简单聊会 Docker
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Docker是基于Go语言实现的云开源项目，诞生于2013年初，最初发起者是dotCloud公司
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的慕课网手记：简单聊会 Docker，转载请保留链接 ;)
+
+
+最近在工作中一直在忙基础设施构建，发现在选型的时候，大家心里基本上都有一个自己的成熟架构。而在服务部署这块发现公司的同事们都大多数考虑Docker，在业余闲聊了后，发现他们对Docker只是在停留在使用，对一些Docker的基本知识还是不了解，并不清楚 Docker 到底是什么，要解决什么问题，好处又在哪里？今...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 10, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/09/software-distributed-system/">
+        <h2 class="post-title">
+            开篇-分布式系统中的那些开源软件
+        </h2>
+        
+        <h3 class="post-subtitle">
+            讨论一个大型话题：分布式系统所能采用的主流软件
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的慕课网手记：开篇-分布式系统中的那些开源软件，转载请保留链接 ;)
+
+
+
+
+我们来讨论一个大型话题，把分布式系统所能采用的开源或者商业软件，方方面面都来讨论一下。这里做个记录，也算是我加入慕课网认证作者的一个里程碑，今后的文章也是会和这些软件相关的，毕竟单体的项目已经不复返，分布式的项目已经成为了主流。不管你看到这个大纲可能有的熟悉，还是有的不了解，没关系，我们今后会一个...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 9, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/03/nginx/">
+        <h2 class="post-title">
+            聊聊 Nginx 的反向代理
+        </h2>
+        
+        <h3 class="post-subtitle">
+             Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器 
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的慕课网手记：聊聊 Nginx 的反向代理，转载请保留链接 ;)
+
+
+背景
+
+最近在优化服务基础设施这块，正好有时间写一下Nginx的体会。相信大家都听说过反向代理，一提到反向代理一定会想到Nginx。什么你没听过Nginx？那么你一定听说过Apache吧！Apache是世界使用排名第一的Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 3, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/02/git/">
+        <h2 class="post-title">
+            Git的奇技淫巧
+        </h2>
+        
+        <h3 class="post-subtitle">
+             Git是一个 分布式版本管理工具 
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  Git常用命令集合，Fork于tips项目
+
+
+Git是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
+
+下面的内容就是列举了常用的 Git 命令和...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 2, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/04/01/interview-experience/">
+        <h2 class="post-title">
+            Java 大厂面试
+        </h2>
+        
+        <h3 class="post-subtitle">
+            吐血超详细总结
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文来自于我的慕课网手记：Java大厂面试（吐血超详细总结），转载请保留链接 ;)
+
+
+这是我今年从四月份开始，主要的大厂面试经历，有些企业面试的还没来得及整理，还有些没有带答案就发出来了，不管怎样，请各位先思考如果是你怎么回答面试官？这篇文章会持续更新，请各位持续关注，希望对你有所帮助！
+
+面试清单
+
+  平安产险
+  飞猪
+  上汽大通
+  浩鲸科技
+  杏仁医生
+  兴盛优先
+ ...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on April 1, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/zcblog/2019/03/31/java8/">
+        <h2 class="post-title">
+            非常实用的 Java 8 代码片段
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Java 8带来了很多的新特性，比如编译器、类库、开发工具和JVM。
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                目录
+
+Array (数组相关)
+
+
+  chunk
+  countOccurrences
+  deepFlatten
+  difference
+  differenceWith
+  distinctValuesOfArray
+  dropElements
+  dropRight
+  everyNth
+  filterNonUnique
+  flatten
+  flattenDepth
+  ...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by caojiele on March 31, 2019
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="/zcblog/page2">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+    		</div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+    <h5><a href="/zcblog/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                    title="数据库"
+                    rel="2">数据库</a>
+        
+                <a data-sort="0015" 
+                    href="/zcblog/archive/?tag=Java"
+                    title="Java"
+                    rel="11">Java</a>
+        
+                <a data-sort="0021" 
+                    href="/zcblog/archive/?tag=%E6%85%95%E8%AF%BE%E7%BD%91%E6%89%8B%E8%AE%B0"
+                    title="慕课网手记"
+                    rel="5">慕课网手记</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=%E9%9D%A2%E8%AF%95"
+                    title="面试"
+                    rel="3">面试</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=Dubbo"
+                    title="Dubbo"
+                    rel="3">Dubbo</a>
+        
+                <a data-sort="0023" 
+                    href="/zcblog/archive/?tag=RPC"
+                    title="RPC"
+                    rel="3">RPC</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%88%86%E5%B8%83%E5%BC%8F"
+                    title="分布式"
+                    rel="2">分布式</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E5%BE%AE%E6%9C%8D%E5%8A%A1"
+                    title="微服务"
+                    rel="2">微服务</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="2">生活</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Nacos"
+                    title="Nacos"
+                    rel="2">Nacos</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring"
+                    title="Spring"
+                    rel="2">Spring</a>
+        
+                <a data-sort="0024" 
+                    href="/zcblog/archive/?tag=Spring+Cloud"
+                    title="Spring Cloud"
+                    rel="2">Spring Cloud
+    </div>
+</section>
+
+
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+  <hr>
+  <h5><a href="/zcblog/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+    
+    <img src="https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg" />
+    
+    
+    <p> When you look long into an abyss,the abyss looks into you<br> 当你凝视深渊时,深渊也在凝视你</p>
+    
+    <!-- SNS Link -->
+    
+
+
+<ul class="list-inline">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+  </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://huangxuan.me/">黄玄的博客</a></li>
+  
+  <li><a href="http://www.xuxueli.com/blog/#/">许雪里的博客</a></li>
+  
+  <li><a href="https://mercyblitz.github.io/">小马哥的技术博客</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="https://yizibi.github.io">一之笔的博客</a></li>
+  
+</ul>
+
+
+    		</div>
+        
+	</div>
+</div>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  <li>
+    <a href="/zcblog/feed.xml">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/wang-le-6-62">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/caojiele">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/Jack-cao-387159129">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                本站总访问量:<span id="busuanzi_value_site_pv"></span>，本站访客数:<span id="busuanzi_value_site_uv"></span>，本文总阅读量:<span id="busuanzi_value_page_pv"></span>
+                
+			
+                    <br>
+		    <img src="/img/root/logo-record.png" style="margin-left"/>
+			Copyright &copy; Jlcao Blog 2019  
+                    <br>
+			
+		    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43021102000161" 
+		    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			    湘公网安备 43021102000161号</a> |
+		    
+                    Powered by <a href="https://caojiele.com">Jlcao Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+		  </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- jQuery -->
+<script src="/zcblog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/zcblog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/zcblog/js/hux-blog.min.js "></script>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/zcblog/js/snackbar.js "></script>
+<script src="/zcblog/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-120526213-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+<!-- Search -->
+ <script>
+     function onKeyPress(e) {
+         var keyCode = null;
+         if(e.which)
+             keyCode = e.which;
+         else if(e.keyCode)
+             keyCode = e.keyCode;
+         if(keyCode == 13) {
+             location.href="/search/?q=" + document.getElementById('search-input').value;
+             return false;
+         }
+         return true;
+     }
+     var url_string = window.location.href;
+    if (url_string.indexOf('search/?q') > 0){
+        document.getElementById('search-ic').classList.toggle('hidden');
+        var url = new URL(url_string);
+        var question = url.searchParams.get("q");
+        let title = document.getElementById('search-qs');
+        title.innerHTML = '"' + question + '"';
+        SimpleJekyllSearch({
+            searchtext: question,
+            resultsContainer: document.getElementById('results-container-list'),
+            json: '/search.json',
+            searchResultTemplate: '<li>\n' +
+                '                <div class="cbp_tmlabel result">\n' +
+                '                    <a href="{url}">\n' +
+                '                        <h2 id="boxoffice">{title}</h2>\n' +
+                '                        <ul>\n' +
+                '                            <li>\n' +
+                '                                {desc}' +
+                '                            </li>\n' +
+                '                        </ul>\n' +
+                '                        <br>\n' +
+                '                    </a>\n' +
+                '                </div>\n' +
+                '            </li>',
+            noResultsText: '',
+            fuzzy: false,
+            limit: 10000
+        });
+    } else {
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
+            noResultsText: '',
+            fuzzy: false
+        });
+    }
+ </script>
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Back to the top -->
+<a id="rocket" href="#top" class=""></a>
+<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/root/icon_wechat.png" width="0" height="0" />     
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
