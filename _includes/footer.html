@@ -7,7 +7,7 @@
                 {% include sns-links.html center=true %}
 
                 <p class="copyright text-muted">
-                    <img src="/img/root/logo-record.png" style="margin-left"/>
+                    <img src="{{ "/img/root/logo-record.png " | prepend: site.baseurl }}" style="margin-left"/>
                     Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
                 </p>
             </div>
@@ -27,7 +27,7 @@
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- script pointing to jekyll-search.js -->
-<script src="/js/simple-jekyll-search.min.js"></script>
+<script src="{{ "/js/simple-jekyll-search.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
@@ -213,7 +213,7 @@
         SimpleJekyllSearch({
             searchtext: question,
             resultsContainer: document.getElementById('results-container-list'),
-            json: '/search.json',
+            json: '/zcblog/search.json',
             searchResultTemplate: '<li>\n' +
                 '                <div class="cbp_tmlabel result">\n' +
                 '                    <a href="{url}">\n' +
@@ -235,7 +235,7 @@
         SimpleJekyllSearch({
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
-            json: '/search.json',
+            json: '/zcblog/search.json',
             searchResultTemplate: '<li><a href="{url}" style="display:block;width: 100%;padding-left:10px; padding-right:10px;"><i class="fa fa-angle-double-right fa-border" aria-hidden="true"></i>    {title}</a></li>',
             noResultsText: '',
             fuzzy: false
@@ -298,5 +298,5 @@
 
 <!-- Back to the top -->
 <a id="rocket" href="#top" class=""></a>
-<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-<script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<script type="text/javascript" src="{{ "/js/totop.js?v=1.0.0" | prepend: site.baseurl }}" async=""></script>
+<script type="text/javascript" src="{{ "/js/toc.js?v=1.0.0" | prepend: site.baseurl }}" async=""></script>

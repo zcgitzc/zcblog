@@ -1,7 +1,7 @@
 {
-  "name": "Jlcao Blog",
-  "short_name": "Jlcao Blog",
-  "description": " 有内容的Java攻城狮 ",
+  "name": "Zark Blog",
+  "short_name": "Zark Blog",
+  "description": " 非著名程序员 ",
   "icons": [{
     "src": "icons/128.png",
     "sizes": "128x128",
@@ -13,7 +13,7 @@
   }],
   "background_color": "#fff",
   "theme_color": "#000",
-  "start_url": "/",
+  "start_url": "/zcblog",
   "display": "standalone",
   "orientation": "portrait"
 }

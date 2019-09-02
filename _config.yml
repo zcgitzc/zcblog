@@ -1,9 +1,9 @@
 # Site settings
-title: Zark Blog
-SEOTitle: 庄川的博客 | Zark Blog
+title: ZhuangChuan
+SEOTitle: 庄川的博客 | Zark
 header-img: img/root/home-bg-fj.jpg
 email:  486289410@qq.com
-description: "关于程序与设计以及架构 | 庄川，Java & Mobile Lover，Software Engineer | 这里是 庄川 的个人博客，与你一起发现更大的世界。"
+description: "个人博客 | 庄川，网络文章总结 | 这里是 庄川 的个人博客。"
 keyword: "zark, zhuangchuan, 庄川的博客, Zark Blog, 博客, 个人网站, 互联网, Java, 数据库, 后端, 开发"
 url: "https://zcgitzc.github.io/zcblog/"              # your host, for absolute URL
 baseurl: "/zcblog"                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -71,8 +71,8 @@ baidu_analytics: 'f449fbb4d143d156c197d3a7a38a779d'
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: " When you look long into an abyss,the abyss looks into you<br> 当你凝视深渊时,深渊也在凝视你"
-sidebar-avatar: https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561301140772-a4c43da7-3921-48bf-8c92-f57c4fdc97d9.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: " Good Good Study , Day Day Up!<br> 好好学习,天天向上"
+sidebar-avatar: https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1567437952&di=7439ed51bb5538c86f56feb5a01c39cb&src=http://www.dzwww.com/yule/mingxing/201103/W020110317408028364884.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
