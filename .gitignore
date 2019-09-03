@@ -23,5 +23,5 @@
 hs_err_pid*
 
 #build files
-_site
-.jekyll-cache
+_site/
+.jekyll-cache/
