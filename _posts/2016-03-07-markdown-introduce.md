@@ -3,7 +3,7 @@ layout:     post
 title:      "Markdown介绍"
 subtitle:   "Markdown是一种轻量级标记语言"
 date:       2016-03-07
-author:     "younghz"
+author:     "zark"
 header-img: "img/in-post/2016.03/07/post-markdown-introduce.jpg"
 tags:
     - Markdown

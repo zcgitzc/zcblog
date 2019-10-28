@@ -68,7 +68,7 @@ tags:
 
 #### 项目搭建  
 - 项目结构图 
-```
+```text
 ├── iproject[项目根目录]
 |
 │   ├── iproject-common[公共逻辑]
@@ -94,8 +94,8 @@ tags:
 │   ├── iproject-web[Web模块]
 |   |
 │   ├── README.md[项目介绍] 
+```  
 
-```
 - 依赖关系
 - iproject-starter(项目启动模块，配置一些启动信息及Bean注入&Configuration)
     - iproject-web(Web模块，Controller所在位置)
@@ -111,35 +111,36 @@ tags:
 | ----------- | ------ | ----------------| ------ | ---|
 |2019年07月02日|v0.1.0|初稿| XX |初稿|
 
-#### API名称：获取当前用户可见所有租户信息 + 报表组信息
+#### API名称：获取当前用户可见所有租户信息&报表组信息
 
-```
+```text
 GET ${base-domain}/studio_api/tenant
 ```
 #### 描述
-```
-获取当前用户可见所有租户信息 + 每个租户下对应的报表简略信息
+
+```text
+获取当前用户可见所有租户信息&每个租户下对应的报表简略信息
 ```
 
 #### 请求参数
-| 请求参数名	    | 类型 	 | 必填	|   传参位置	      | 说明 | 备注 |
-| -----------  | ------ | ------| ----------------| ----| --- |
-|buc_cookie|String|Y|cookie|用户buc登录cookie|
-|type|String|Y|url|租户的类型| 10代表studio，20代表IR Pack|
+
+| 请求参数名 | 类型 | 必填 | 传参位置 |说明
+| ----------- | ------ | ----------------| ------ | ---
+|buc_cookie|String|Y|cookie|用户buc登录cookie
+|type|String|Y|url|租户的类型10代表studio 
 
 #### 请求参数示例
 
-```
+```text
 GET ${base-domain}/studio_api/tenant
 ``` 
 
 #### 返回参数
-| 返回参数名	    | 类型 	 | 说明 | 备注|
-| -----------  | ------ | ------| ----|----|
-|data中id|long|租户id|租户id|
-|data中name|String|租户名称|租户名称|
 
-
+| 返回参数名 | 类型  |说明
+| ----------- | ------ | ------------
+|buc_cookie|String|用户buc登录cookie
+|type|String|租户的类型10代表studio 
 
 #### 返回结果示例
 
